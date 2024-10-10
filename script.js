@@ -33,13 +33,53 @@ document.addEventListener('DOMContentLoaded', function() {
         once: true,
     });
 
-    // Cabana reservation
-    const reserveButtons = document.querySelectorAll('.cabana-card .btn');
-    reserveButtons.forEach(button => {
+    // Initialize Swiper for hero section
+    var heroSwiper = new Swiper(".mySwiper", {
+        spaceBetween: 30,
+        effect: "fade",
+        loop: true,
+        autoplay: {
+            delay: 3500,
+            disableOnInteraction: false,
+        },
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+    });
+
+    // Initialize Swiper for advertising banner
+    var adSwiper = new Swiper(".adSwiper", {
+        spaceBetween: 30,
+        loop: true,
+        autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+        },
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+    });
+
+    // Top banner close functionality
+    const topBanner = document.getElementById('top-banner');
+    const closeBanner = document.getElementById('close-banner');
+
+    if (closeBanner) {
+        closeBanner.addEventListener('click', function() {
+            topBanner.style.display = 'none';
+        });
+    }
+
+    // WhatsApp functionality for cabin reservation
+    const whatsappButtons = document.querySelectorAll('.whatsapp-btn');
+    whatsappButtons.forEach(button => {
         button.addEventListener('click', function(e) {
             e.preventDefault();
-            const cabanaName = this.closest('.cabana-card').querySelector('h3').textContent;
-            alert(`Has seleccionado reservar la ${cabanaName}. En breve te contactaremos para confirmar tu reserva.`);
+            const cabinName = this.getAttribute('data-cabin');
+            const message = encodeURIComponent(`Hola, me gustaría reservar la ${cabinName}. ¿Podrían darme más información?`);
+            window.open(`https://wa.me/5492604445678?text=${message}`, '_blank');
         });
     });
 
