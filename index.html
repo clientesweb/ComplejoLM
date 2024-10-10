@@ -13,11 +13,11 @@
     <meta name="twitter:card" content="summary_large_image">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-    <link rel="stylesheet" href="styless.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body class="font-sans">
     <header class="bg-white shadow-md fixed top-0 left-0 right-0 z-50">
-        <div id="top-banner" class="bg-yellow-400 p-2">
+        <div id="top-banner" class="bg-accent-color p-2">
             <div class="swiper-container">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide text-center text-sm font-semibold">¡Oferta de primavera! 15% de descuento en reservas de 5 noches</div>
@@ -43,28 +43,28 @@
         </nav>
     </header>
 
-    <main>
+    <main class="pt-20">
         <section id="inicio" class="hero min-h-screen flex items-center justify-center">
             <div class="swiper-container">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide" style="background-image: url('https://source.unsplash.com/1600x900/?mendoza,vineyard');">
-                        <div class="text-center text-white">
-                            <h1 class="text-4xl md:text-6xl font-bold mb-4">Bienvenido a Complejo LM</h1>
-                            <p class="text-xl md:text-2xl mb-8">Tu escape perfecto en San Rafael, Mendoza</p>
+                        <div class="text-center text-white px-4">
+                            <h1 class="text-3xl md:text-4xl lg:text-6xl font-bold mb-4">Bienvenido a Complejo LM</h1>
+                            <p class="text-lg md:text-xl lg:text-2xl mb-8">Tu escape perfecto en San Rafael, Mendoza</p>
                             <a href="#contacto" class="bg-white text-gray-800 px-6 py-3 rounded-full text-lg hover:bg-gray-100 transition duration-300">Reserva ahora</a>
                         </div>
                     </div>
                     <div class="swiper-slide" style="background-image: url('https://source.unsplash.com/1600x900/?san-rafael,argentina');">
-                        <div class="text-center text-white">
-                            <h2 class="text-4xl md:text-6xl font-bold mb-4">Naturaleza y Confort</h2>
-                            <p class="text-xl md:text-2xl mb-8">Descubre la belleza de San Rafael</p>
+                        <div class="text-center text-white px-4">
+                            <h2 class="text-3xl md:text-4xl lg:text-6xl font-bold mb-4">Naturaleza y Confort</h2>
+                            <p class="text-lg md:text-xl lg:text-2xl mb-8">Descubre la belleza de San Rafael</p>
                             <a href="#galeria" class="bg-white text-gray-800 px-6 py-3 rounded-full text-lg hover:bg-gray-100 transition duration-300">Ver galería</a>
                         </div>
                     </div>
                     <div class="swiper-slide" style="background-image: url('https://source.unsplash.com/1600x900/?wine,tasting');">
-                        <div class="text-center text-white">
-                            <h2 class="text-4xl md:text-6xl font-bold mb-4">Experiencia Única</h2>
-                            <p class="text-xl md:text-2xl mb-8">Vive la magia de los viñedos mendocinos</p>
+                        <div class="text-center text-white px-4">
+                            <h2 class="text-3xl md:text-4xl lg:text-6xl font-bold mb-4">Experiencia Única</h2>
+                            <p class="text-lg md:text-xl lg:text-2xl mb-8">Vive la magia de los viñedos mendocinos</p>
                             <a href="#servicios" class="bg-white text-gray-800 px-6 py-3 rounded-full text-lg hover:bg-gray-100 transition duration-300">Ver servicios</a>
                         </div>
                     </div>
@@ -73,18 +73,18 @@
             </div>
         </section>
 
-        <section id="promo-banner" class="bg-indigo-600 text-white py-12">
+        <section id="promo-banner" class="bg-primary text-white py-12">
             <div class="container mx-auto px-4 text-center">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">¡Oferta Especial de Primavera!</h2>
-                <p class="text-xl mb-8">Reserva 4 noches y obtén un tour de bodegas gratis. ¡No te lo pierdas!</p>
-                <a href="#contacto" class="bg-white text-indigo-600 px-6 py-3 rounded-full text-lg hover:bg-gray-100 transition duration-300">Reservar ahora</a>
+                <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">¡Oferta Especial de Primavera!</h2>
+                <p class="text-lg md:text-xl mb-8">Reserva 4 noches y obtén un tour de bodegas gratis. ¡No te lo pierdas!</p>
+                <a href="#contacto" class="bg-white text-primary px-6 py-3 rounded-full text-lg hover:bg-gray-100 transition duration-300">Reservar ahora</a>
             </div>
         </section>
 
         <section id="cabanas" class="py-16 bg-gray-100">
             <div class="container mx-auto px-4">
-                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Nuestras Cabañas</h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-12">Nuestras Cabañas</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <!-- Cabañas cards will be dynamically inserted here -->
                 </div>
             </div>
@@ -92,8 +92,8 @@
 
         <section id="servicios" class="py-16 bg-white">
             <div class="container mx-auto px-4">
-                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Nuestros Servicios</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-12">Nuestros Servicios</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                     <!-- Servicios cards will be dynamically inserted here -->
                 </div>
             </div>
@@ -101,8 +101,8 @@
 
         <section id="galeria" class="py-16 bg-gray-100">
             <div class="container mx-auto px-4">
-                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Galería</h2>
-                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-12">Galería</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                     <!-- Gallery images will be dynamically inserted here -->
                 </div>
             </div>
@@ -110,7 +110,7 @@
 
         <section id="contacto" class="py-16 bg-white">
             <div class="container mx-auto px-4">
-                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Contáctanos</h2>
+                <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-12">Contáctanos</h2>
                 <div class="max-w-lg mx-auto">
                     <form id="contact-form" class="space-y-4">
                         <div>
@@ -126,7 +126,7 @@
                             <textarea id="message" name="message" rows="4" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"></textarea>
                         </div>
                         <div>
-                            <button type="submit" class="w-full bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50">Enviar mensaje</button>
+                            <button type="submit" class="w-full bg-primary text-white px-4 py-2 rounded-md hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">Enviar mensaje</button>
                         </div>
                     </form>
                 </div>
@@ -168,7 +168,7 @@
             </div>
             <div class="mt-8 text-center">
                 <p>&copy; 2024 Complejo LM. Todos los derechos reservados.</p>
-                <p class="mt-2">Powered by <a href="https://dualitydomain.com" target="_blank" rel="noopener noreferrer" class="text-indigo-400 hover:text-indigo-300">Duality Domain</a></p>
+                <p class="mt-2">Powered by <a href="https://dualitydomain.com" target="_blank" rel="noopener noreferrer" class="text-accent-color hover:text-white">Duality Domain</a></p>
             </div>
         </div>
     </footer>
