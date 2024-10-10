@@ -3,179 +3,225 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Complejo LM - Tu escape perfecto en San Rafael, Mendoza</title>
-    <meta name="description" content="Disfruta de unas vacaciones inolvidables en nuestras hermosas cabañas en San Rafael, Mendoza. Naturaleza, confort y tranquilidad te esperan en Complejo LM.">
-    <link rel="icon" href="/favicon.ico">
-    <meta property="og:title" content="Complejo LM - San Rafael, Mendoza">
-    <meta property="og:description" content="Escapa a la naturaleza en nuestras lujosas cabañas. Reserva ahora para una experiencia inolvidable.">
-    <meta property="og:image" content="/og-image.jpg">
-    <meta property="og:url" content="https://www.complejolm.com">
-    <meta name="twitter:card" content="summary_large_image">
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <title>Complejo LM - San Rafael, Mendoza</title>
     <link rel="stylesheet" href="styless.css">
+    <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
 </head>
-<body class="font-sans">
-    <header class="bg-white shadow-md fixed top-0 left-0 right-0 z-50">
-        <div id="top-banner" class="bg-accent-color p-2">
-            <div class="swiper-container">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide text-center text-sm font-semibold">¡Oferta de primavera! 15% de descuento en reservas de 5 noches</div>
-                    <div class="swiper-slide text-center text-sm font-semibold">Reserva directa y obtén un tour de viñedos gratis</div>
-                    <div class="swiper-slide text-center text-sm font-semibold">Nuevas cabañas con vista al lago disponibles</div>
+<body>
+    <!-- Top Banner -->
+    <div id="top-banner" class="bg-green-600 text-white py-2 px-4">
+        <div class="container">
+            <p id="banner-text"></p>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="bg-white shadow-md">
+        <div class="container">
+            <h1 class="text-green-800">Complejo LM</h1>
+            <nav id="desktop-nav">
+                <a href="#inicio" class="text-green-800">Inicio</a>
+                <a href="#cabanas" class="text-green-800">Cabañas</a>
+                <a href="#servicios" class="text-green-800">Servicios</a>
+                <a href="#ubicacion" class="text-green-800">Ubicación</a>
+                <a href="#contacto" class="text-green-800">Contacto</a>
+            </nav>
+            <button id="mobile-menu-btn" class="md-hidden text-green-800">Menú</button>
+        </div>
+    </header>
+
+    <nav id="mobile-nav" class="hidden bg-white py-2">
+        <a href="#inicio" class="block py-2 px-4 text-green-800">Inicio</a>
+        <a href="#cabanas" class="block py-2 px-4 text-green-800">Cabañas</a>
+        <a href="#servicios" class="block py-2 px-4 text-green-800">Servicios</a>
+        <a href="#ubicacion" class="block py-2 px-4 text-green-800">Ubicación</a>
+        <a href="#contacto" class="block py-2 px-4 text-green-800">Contacto</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div id="hero-slider" class="hero-slider">
+            <!-- Images will be inserted here by JavaScript -->
+        </div>
+        <div class="hero-content">
+            <h2>Bienvenidos a Complejo LM</h2>
+            <p>Tu escape perfecto en San Rafael, Mendoza</p>
+            <a href="#contacto" class="btn">Reserva Ahora</a>
+        </div>
+    </section>
+
+    <!-- Cabins Section -->
+    <section id="cabanas" class="py-16 bg-white">
+        <div class="container">
+            <h2 class="text-3xl font-bold text-center mb-12 text-green-800">Nuestras Cabañas</h2>
+            <div id="cabin-slider" class="cabin-slider">
+                <!-- Cabin content will be inserted here by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="servicios" class="py-16 bg-gray-100">
+        <div class="container">
+            <h2 class="text-3xl font-bold text-center mb-12 text-green-800">Servicios</h2>
+            <div class="grid-4">
+                <div class="feature-card">
+                    <i class="fas fa-mountain text-4xl text-green-600"></i>
+                    <h3>Vistas Panorámicas</h3>
+                    <p>Disfruta de impresionantes vistas a las montañas desde tu cabaña.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-swimming-pool text-4xl text-green-600"></i>
+                    <h3>Piscina</h3>
+                    <p>Relájate en nuestra piscina con vistas al paisaje mendocino.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-wifi text-4xl text-green-600"></i>
+                    <h3>Wi-Fi Gratis</h3>
+                    <p>Mantente conectado con nuestro Wi-Fi de alta velocidad.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-parking text-4xl text-green-600"></i>
+                    <h3>Estacionamiento</h3>
+                    <p>Amplio estacionamiento gratuito para nuestros huéspedes.</p>
                 </div>
             </div>
         </div>
-        <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold text-gray-800">Complejo LM</a>
-            <button id="menu-toggle" class="md:hidden">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-                </svg>
-            </button>
-            <ul id="menu" class="hidden md:flex space-x-6">
-                <li><a href="#inicio" class="text-gray-600 hover:text-gray-800">Inicio</a></li>
-                <li><a href="#cabanas" class="text-gray-600 hover:text-gray-800">Cabañas</a></li>
-                <li><a href="#servicios" class="text-gray-600 hover:text-gray-800">Servicios</a></li>
-                <li><a href="#galeria" class="text-gray-600 hover:text-gray-800">Galería</a></li>
-                <li><a href="#contacto" class="text-gray-600 hover:text-gray-800">Contacto</a></li>
-            </ul>
-        </nav>
-    </header>
+    </section>
 
-    <main class="pt-20">
-        <section id="inicio" class="hero min-h-screen flex items-center justify-center">
-            <div class="swiper-container">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide" style="background-image: url('https://source.unsplash.com/1600x900/?mendoza,vineyard');">
-                        <div class="text-center text-white px-4">
-                            <h1 class="text-3xl md:text-4xl lg:text-6xl font-bold mb-4">Bienvenido a Complejo LM</h1>
-                            <p class="text-lg md:text-xl lg:text-2xl mb-8">Tu escape perfecto en San Rafael, Mendoza</p>
-                            <a href="#contacto" class="bg-white text-gray-800 px-6 py-3 rounded-full text-lg hover:bg-gray-100 transition duration-300">Reserva ahora</a>
-                        </div>
-                    </div>
-                    <div class="swiper-slide" style="background-image: url('https://source.unsplash.com/1600x900/?san-rafael,argentina');">
-                        <div class="text-center text-white px-4">
-                            <h2 class="text-3xl md:text-4xl lg:text-6xl font-bold mb-4">Naturaleza y Confort</h2>
-                            <p class="text-lg md:text-xl lg:text-2xl mb-8">Descubre la belleza de San Rafael</p>
-                            <a href="#galeria" class="bg-white text-gray-800 px-6 py-3 rounded-full text-lg hover:bg-gray-100 transition duration-300">Ver galería</a>
-                        </div>
-                    </div>
-                    <div class="swiper-slide" style="background-image: url('https://source.unsplash.com/1600x900/?wine,tasting');">
-                        <div class="text-center text-white px-4">
-                            <h2 class="text-3xl md:text-4xl lg:text-6xl font-bold mb-4">Experiencia Única</h2>
-                            <p class="text-lg md:text-xl lg:text-2xl mb-8">Vive la magia de los viñedos mendocinos</p>
-                            <a href="#servicios" class="bg-white text-gray-800 px-6 py-3 rounded-full text-lg hover:bg-gray-100 transition duration-300">Ver servicios</a>
-                        </div>
-                    </div>
+    <!-- Promo Banner -->
+    <section id="promo-banner" class="py-12 text-white">
+        <div class="container">
+            <div id="promo-content" class="text-center">
+                <!-- Promo content will be inserted here by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section id="ubicacion" class="py-16 bg-white">
+        <div class="container">
+            <h2 class="text-3xl font-bold text-center mb-12 text-green-800">Ubicación</h2>
+            <div class="flex-col md-flex-row">
+                <div class="w-full md-w-1/2">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d107134.74394330698!2d-68.40804589622569!3d-34.6280961685901!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x967907fdb13d06a7%3A0x5d70a8a7c066c6c4!2sSan%20Rafael%2C%20Mendoza!5e0!3m2!1ses-419!2sar!4v1697071723154!5m2!1ses-419!2sar"
+                        width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
-                <div class="swiper-pagination"></div>
-            </div>
-        </section>
-
-        <section id="promo-banner" class="bg-primary text-white py-12">
-            <div class="container mx-auto px-4 text-center">
-                <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">¡Oferta Especial de Primavera!</h2>
-                <p class="text-lg md:text-xl mb-8">Reserva 4 noches y obtén un tour de bodegas gratis. ¡No te lo pierdas!</p>
-                <a href="#contacto" class="bg-white text-primary px-6 py-3 rounded-full text-lg hover:bg-gray-100 transition duration-300">Reservar ahora</a>
-            </div>
-        </section>
-
-        <section id="cabanas" class="py-16 bg-gray-100">
-            <div class="container mx-auto px-4">
-                <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-12">Nuestras Cabañas</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Cabañas cards will be dynamically inserted here -->
+                <div class="w-full md-w-1/2">
+                    <h3 class="text-2xl font-semibold mb-4 text-green-700">Cómo llegar</h3>
+                    <p class="mb-4">
+                        Complejo LM está ubicado en el corazón de San Rafael, Mendoza, a solo minutos de las principales
+                        atracciones turísticas de la región.
+                    </p>
+                    <ul class="list-disc list-inside mb-4">
+                        <li>A 15 minutos del centro de San Rafael</li>
+                        <li>A 30 minutos del Cañón del Atuel</li>
+                        <li>A 45 minutos de Los Reyunos</li>
+                    </ul>
+                    <p>
+                        Dirección exacta: Av. Hipólito Yrigoyen 500, San Rafael, Mendoza
+                    </p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="servicios" class="py-16 bg-white">
-            <div class="container mx-auto px-4">
-                <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-12">Nuestros Servicios</h2>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <!-- Servicios cards will be dynamically inserted here -->
-                </div>
-            </div>
-        </section>
-
-        <section id="galeria" class="py-16 bg-gray-100">
-            <div class="container mx-auto px-4">
-                <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-12">Galería</h2>
-                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                    <!-- Gallery images will be dynamically inserted here -->
-                </div>
-            </div>
-        </section>
-
-        <section id="contacto" class="py-16 bg-white">
-            <div class="container mx-auto px-4">
-                <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-12">Contáctanos</h2>
-                <div class="max-w-lg mx-auto">
-                    <form id="contact-form" class="space-y-4">
-                        <div>
-                            <label for="name" class="block text-sm font-medium text-gray-700">Nombre</label>
-                            <input type="text" id="name" name="name" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+    <!-- Contact Section -->
+    <section id="contacto" class="py-16 bg-gray-100">
+        <div class="container">
+            <h2 class="text-3xl font-bold text-center mb-12 text-green-800">Contáctanos</h2>
+            <div class="flex-col md-flex-row">
+                <div class="w-full md-w-1/2">
+                    <form class="bg-white p-6 rounded-lg shadow-lg">
+                        <div class="mb-4">
+                            <label for="name" class="block text-gray-700 font-bold mb-2">Nombre</label>
+                            <input type="text" id="name" name="name" required
+                                class="w-full px-3 py-2 border border-gray-300 rounded-md">
                         </div>
-                        <div>
-                            <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-                            <input type="email" id="email" name="email" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                        <div class="mb-4">
+                            <label for="email" class="block text-gray-700 font-bold mb-2">Email</label>
+                            <input type="email" id="email" name="email" required
+                                class="w-full px-3 py-2 border border-gray-300 rounded-md">
                         </div>
-                        <div>
-                            <label for="message" class="block text-sm font-medium text-gray-700">Mensaje</label>
-                            <textarea id="message" name="message" rows="4" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"></textarea>
+                        <div class="mb-4">
+                            <label for="message" class="block text-gray-700 font-bold mb-2">Mensaje</label>
+                            <textarea id="message" name="message" rows="4" required
+                                class="w-full px-3 py-2 border border-gray-300 rounded-md"></textarea>
                         </div>
-                        <div>
-                            <button type="submit" class="w-full bg-primary text-white px-4 py-2 rounded-md hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">Enviar mensaje</button>
-                        </div>
+                        <button type="submit"
+                            class="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700 transition duration-300">Enviar
+                            Mensaje</button>
                     </form>
                 </div>
+                <div class="w-full md-w-1/2">
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <h3 class="text-2xl font-semibold mb-4 text-green-700">Información de Contacto</h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-center">
+                                <i class="fas fa-phone-alt text-green-600 mr-2"></i>
+                                <span>+54 9 260 444-5678</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-envelope text-green-600 mr-2"></i>
+                                <span>info@complejolm.com</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-map-marker-alt text-green-600 mr-2"></i>
+                                <span>Av. Hipólito Yrigoyen 500, San Rafael, Mendoza</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
-    <footer class="bg-gray-800 text-white py-8">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <!-- Footer -->
+    <footer class="bg-green-800 text-white py-12">
+        <div class="container">
+            <div class="grid-3">
                 <div>
-                    <h3 class="text-xl font-semibold mb-4">Complejo LM</h3>
-                    <p>Calle Los Viñedos 123</p>
-                    <p>San Rafael, Mendoza, Argentina</p>
-                    <p>Teléfono: +54 9 260 4567-8901</p>
-                    <p>Email: info@complejolm.com</p>
+                    <h3 class="text-2xl font-bold mb-4">Complejo LM</h3>
+                    <p class="mb-4">Tu hogar lejos de casa en San Rafael, Mendoza</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-white hover:text-green-300 transition duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-white hover:text-green-300 transition duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-white hover:text-green-300 transition duration-300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
                 </div>
                 <div>
-                    <h3 class="text-xl font-semibold mb-4">Enlaces rápidos</h3>
+                    <h4 class="text-lg font-semibold mb-4">Enlaces Rápidos</h4>
                     <ul class="space-y-2">
-                        <li><a href="#inicio" class="hover:text-gray-300">Inicio</a></li>
-                        <li><a href="#cabanas" class="hover:text-gray-300">Cabañas</a></li>
-                        <li><a href="#servicios" class="hover:text-gray-300">Servicios</a></li>
-                        <li><a href="#galeria" class="hover:text-gray-300">Galería</a></li>
-                        <li><a href="#contacto" class="hover:text-gray-300">Contacto</a></li>
+                        <li><a href="#inicio" class="hover:text-green-300 transition duration-300">Inicio</a></li>
+                        <li><a href="#cabanas" class="hover:text-green-300 transition duration-300">Cabañas</a></li>
+                        <li><a href="#servicios" class="hover:text-green-300 transition duration-300">Servicios</a></li>
+                        <li><a href="#ubicacion" class="hover:text-green-300 transition duration-300">Ubicación</a></li>
+                        <li><a href="#contacto" class="hover:text-green-300 transition duration-300">Contacto</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h3 class="text-xl font-semibold mb-4">Síguenos</h3>
-                    <div class="flex space-x-4">
-                        <a href="#" class="hover:text-gray-300"><i class="fab fa-facebook"></i></a>
-                        <a href="#" class="hover:text-gray-300"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="hover:text-gray-300"><i class="fab fa-twitter"></i></a>
-                    </div>
+                    <h4 class="text-lg font-semibold mb-4">Horario de Atención</h4>
+                    <ul class="space-y-2">
+                        <li>Lunes - Viernes: 9:00 AM - 6:00 PM</li>
+                        <li>Sábado: 10:00 AM - 4:00 PM</li>
+                        <li>Domingo: Cerrado</li>
+                    </ul>
                 </div>
             </div>
-            <div class="mt-8">
-                <div id="map" class="w-full h-64 rounded-lg"></div>
-            </div>
-            <div class="mt-8 text-center">
-                <p>&copy; 2024 Complejo LM. Todos los derechos reservados.</p>
-                <p class="mt-2">Powered by <a href="https://dualitydomain.com" target="_blank" rel="noopener noreferrer" class="text-accent-color hover:text-white">Duality Domain</a></p>
+            <div class="mt-8 pt-8 border-t border-green-700 text-center text-sm">
+                <p>&copy; <span id="current-year"></span> Complejo LM. Todos los derechos reservados.</p>
             </div>
         </div>
     </footer>
 
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&callback=initMap" async defer></script>
     <script src="script.js"></script>
 </body>
 </html>
