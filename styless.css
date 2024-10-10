@@ -18,7 +18,7 @@ html {
 }
 
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Poppins', sans-serif;
     line-height: 1.6;
     color: var(--text-color);
     background-color: var(--bg-color);
@@ -660,4 +660,21 @@ h1, h2, h3 {
         bottom: 20px;
         font-size: 25px;
     }
+}
+
+/* Fix for horizontal scrolling */
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
 }
