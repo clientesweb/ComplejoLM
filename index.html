@@ -12,7 +12,19 @@
 <body>
     <!-- Top Banner -->
     <div id="top-banner" class="top-banner">
-        <p>¡Oferta especial! 20% de descuento en reservas de 3 noches o más. <a href="#contacto">Reserva ahora</a></p>
+        <div class="swiper top-banner-swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <p>¡Oferta especial! 20% de descuento en reservas de 3 noches o más. <a href="#contacto">Reserva ahora</a></p>
+                </div>
+                <div class="swiper-slide">
+                    <p>¡Paquete familiar! Niños menores de 12 años se hospedan gratis. <a href="#contacto">Más información</a></p>
+                </div>
+                <div class="swiper-slide">
+                    <p>¡Escapada romántica! Cena para dos incluida en tu estadía. <a href="#contacto">Reserva ya</a></p>
+                </div>
+            </div>
+        </div>
         <button id="close-banner">&times;</button>
     </div>
 
@@ -152,13 +164,13 @@
                 <h2 data-aos="fade-up">Ubicación</h2>
                 <div class="ubicacion-content">
                     <div class="mapa" data-aos="fade-right">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d107134.74394330698!2d-68.40804589622569!3d-34.6280961685901!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x967907fdb13d06a7%3A0x5d70a8a7c066c6c4!2sSan%20Rafael%2C%20Mendoza!5e0!3m2!1ses-419!2sar!4v1697071723154!5m2!1ses-419!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <iframe  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d107134.74394330698!2d-68.40804589622569!3d-34.6280961685901!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x967907fdb13d06a7%3A0x5d70a8a7c066c6c4!2sSan%20Rafael%2C%20Mendoza!5e0!3m2!1ses-419!2sar!4v1697071723154!5m2!1ses-419!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                     <div class="ubicacion-info" data-aos="fade-left">
                         <h3>Cómo llegar</h3>
                         <p>Complejo LM está ubicado en el corazón de San Rafael, Mendoza, a solo minutos de las principales atracciones turísticas de la región.</p>
                         <ul>
-                            <li><i class="fas fa-map-marker-alt"></i> Av. Hipólito Yrigoyen  500, San Rafael, Mendoza</li>
+                            <li><i class="fas fa-map-marker-alt"></i> Av. Hipólito Yrigoyen 500, San Rafael, Mendoza</li>
                             <li><i class="fas fa-clock"></i> A 15 minutos del centro de San Rafael</li>
                             <li><i class="fas fa-mountain"></i> A 30 minutos del Cañón del Atuel</li>
                             <li><i class="fas fa-water"></i> A 45 minutos de Los Reyunos</li>
@@ -219,11 +231,20 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-section">
+                <div class="footer-section about">
                     <h3>Complejo LM</h3>
-                    <p>Tu hogar lejos de casa en San Rafael, Mendoza</p>
+                    <p>Tu hogar lejos de casa en San Rafael, Mendoza. Disfruta de la naturaleza y el confort en nuestras cabañas.</p>
+                    <div class="contact-info">
+                        <span><i class="fas fa-phone"></i> +54 9 260 444-5678</span>
+                        <span><i class="fas fa-envelope"></i> info@complejolm.com</span>
+                    </div>
+                    <div class="social-media">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    </div>
                 </div>
-                <div class="footer-section">
+                <div class="footer-section links">
                     <h3>Enlaces Rápidos</h3>
                     <ul>
                         <li><a href="#inicio">Inicio</a></li>
@@ -234,11 +255,13 @@
                         <li><a href="#contacto">Contacto</a></li>
                     </ul>
                 </div>
-                <div class="footer-section">
-                    <h3>Horario de Atención</h3>
-                    <p>Lunes - Viernes: 9:00 AM - 6:00 PM</p>
-                    <p>Sábado: 10:00 AM - 4:00 PM</p>
-                    <p>Domingo: Cerrado</p>
+                <div class="footer-section contact-form">
+                    <h3>Contáctanos</h3>
+                    <form action="index.html" method="post">
+                        <input type="email" name="email" class="text-input contact-input" placeholder="Tu dirección de email">
+                        <textarea name="message" class="text-input contact-input" placeholder="Tu mensaje..."></textarea>
+                        <button type="submit" class="btn btn-primary btn-block">Enviar</button>
+                    </form>
                 </div>
             </div>
             <div class="footer-bottom">
