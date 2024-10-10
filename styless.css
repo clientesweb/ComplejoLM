@@ -1,0 +1,137 @@
+/* Custom styles */
+:root {
+    --primary-color: #4F46E5;
+    --secondary-color: #F59E0B;
+    --text-color: #1F2937;
+    --background-color: #F3F4F6;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    color: var(--text-color);
+    background-color: var(--background-color);
+}
+
+.hero {
+    position: relative;
+    height: 100vh;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0,0,0.5);
+}
+
+.hero > div {
+    position: relative;
+    z-index: 1;
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+    #menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: white;
+        padding: 1rem;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+
+    #menu.active {
+        display: block;
+    }
+
+    #menu li {
+        margin-bottom: 0.5rem;
+    }
+}
+
+/* New styles */
+.swiper-container {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-slide {
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#top-banner .swiper-container {
+    height: auto;
+}
+
+#top-banner .swiper-slide {
+    padding: 0.5rem;
+}
+
+#promo-banner {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Add attractive hover effects */
+.hover-lift {
+    transition: transform 0.3s ease-out;
+}
+
+.hover-lift:hover {
+    transform: translateY(-5px);
+}
+
+.hover-grow {
+    transition: transform 0.3s ease-out;
+}
+
+.hover-grow:hover {
+    transform: scale(1.05);
+}
+
+/* Keyframe animations */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.animate-pulse {
+    animation: pulse 2s infinite;
+}
