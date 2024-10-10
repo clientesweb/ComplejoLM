@@ -7,71 +7,65 @@ document.addEventListener('DOMContentLoaded', () => {
         menu.classList.toggle('hidden');
     });
 
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!menu.contains(e.target) && !menuToggle.contains(e.target)) {
+            menu.classList.add('hidden');
+        }
+    });
+
     // Smooth scrolling for navigation links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
+            menu.classList.add('hidden');
             document.querySelector(this.getAttribute('href')).scrollIntoView({
                 behavior: 'smooth'
             });
         });
     });
 
-    // Initialize Swiper for hero slider
-    const heroSwiper = new Swiper('.hero .swiper-container', {
+    // Initialize Swiper for hero section
+    new Swiper('#inicio .swiper-container', {
         loop: true,
-        autoplay: {
-            delay: 5000,
-            disableOnInteraction: false,
-        },
         pagination: {
             el: '.swiper-pagination',
             clickable: true,
         },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        autoplay: {
+            delay: 5000,
+        },
     });
 
     // Initialize Swiper for top banner
-    const topBannerSwiper = new Swiper('#top-banner .swiper-container', {
+    new Swiper('#top-banner .swiper-container', {
+        direction: 'vertical',
         loop: true,
         autoplay: {
             delay: 3000,
-            disableOnInteraction: false,
         },
-        direction: 'vertical',
     });
 
     // Dynamic content for cabañas
     const cabanasContainer = document.querySelector('#cabanas .grid');
     const cabanas = [
-        { 
-            name: 'Cabaña Malbec', 
-            description: 'Perfecta para parejas, con vista a los viñedos y jacuzzi privado.', 
-            image: 'https://source.unsplash.com/800x600/?cabin,romantic', 
-            price: '$150 por noche'
-        },
-        { 
-            name: 'Cabaña Familiar Andes', 
-            description: 'Espaciosa cabaña para 6 personas, con terraza y parrilla.', 
-            image: 'https://source.unsplash.com/800x600/?cabin,family', 
-            price: '$250 por noche'
-        },
-        { 
-            name: 'Cabaña Lago Diamante', 
-            description: 'Con vista al lago, ideal para los amantes de la naturaleza y la pesca.', 
-            image: 'https://source.unsplash.com/800x600/?cabin,lake', 
-            price: '$200 por noche'
-        }
+        { name: 'Cabaña Familiar', description: 'Perfecta para familias, con capacidad para 6 personas.', image: 'https://source.unsplash.com/800x600/?cabin,family' },
+        { name: 'Cabaña Romántica', description: 'Ideal para parejas, con jacuzzi privado.', image: 'https://source.unsplash.com/800x600/?cabin,romantic' },
+        { name: 'Cabaña Aventura', description: 'Para los amantes de la naturaleza, cerca de senderos.', image: 'https://source.unsplash.com/800x600/?cabin,adventure' }
     ];
 
     cabanas.forEach(cabana => {
         const cabanaElement = document.createElement('div');
-        cabanaElement.className = 'cabin-card hover-lift';
+        cabanaElement.className = 'bg-white rounded-lg shadow-md overflow-hidden hover-lift fade-in';
         cabanaElement.innerHTML = `
-            <img src="${cabana.image}" alt="${cabana.name}" class="cabin-image w-full">
-            <div class="cabin-details">
-                <h3 class="cabin-name">${cabana.name}</h3>
-                <p class="cabin-description">${cabana.description}</p>
-                <p class="cabin-price">${cabana.price}</p>
+            <img src="${cabana.image}" alt="${cabana.name}" class="w-full h-48 object-cover">
+            <div class="p-6">
+                <h3 class="text-xl font-semibold mb-2">${cabana.name}</h3>
+                <p class="text-gray-600">${cabana.description}</p>
             </div>
         `;
         cabanasContainer.appendChild(cabanaElement);
@@ -83,14 +77,14 @@ document.addEventListener('DOMContentLoaded', () => {
         { name: 'Wi-Fi Gratis', icon: 'fas fa-wifi' },
         { name: 'Estacionamiento', icon: 'fas fa-parking' },
         { name: 'Piscina', icon: 'fas fa-swimming-pool' },
-        { name: 'Tour de Bodegas', icon: 'fas fa-wine-glass-alt' }
+        { name: 'Parrilla', icon: 'fas fa-fire' }
     ];
 
     servicios.forEach(servicio => {
         const servicioElement = document.createElement('div');
-        servicioElement.className = 'text-center hover-grow';
+        servicioElement.className = 'text-center hover-grow animate-on-scroll';
         servicioElement.innerHTML = `
-            <i class="${servicio.icon} service-icon"></i>
+            <i class="${servicio.icon} text-4xl text-indigo-600 mb-4"></i>
             <h3 class="text-xl font-semibold">${servicio.name}</h3>
         `;
         serviciosContainer.appendChild(servicioElement);
@@ -98,25 +92,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Dynamic content for gallery
     const galleryContainer = document.querySelector('#galeria .grid');
-    const galleryImages = [
-        'https://source.unsplash.com/800x800/?vineyard',
-        'https://source.unsplash.com/800x800/?winery',
-        'https://source.unsplash.com/800x800/?san-rafael-argentina',
-        'https://source.unsplash.com/800x800/?cabin-interior',
-        'https://source.unsplash.com/800x800/?mountain-view',
-        'https://source.unsplash.com/800x800/?wine-tasting',
-        'https://source.unsplash.com/800x800/?argentina-landscape',
-        'https://source.unsplash.com/800x800/?cozy-cabin'
-    ];
-
-    galleryImages.forEach((image, index) => {
+    for (let i = 1; i <= 8; i++) {
         const imgElement = document.createElement('div');
-        imgElement.className = 'gallery-image relative overflow-hidden rounded-lg aspect-square';
+        imgElement.className = 'relative overflow-hidden rounded-lg aspect-square hover-grow fade-in';
         imgElement.innerHTML = `
-            <img src="${image}" alt="Galería ${index + 1}" class="w-full h-full object-cover transition-transform duration-300 hover:scale-110">
+            <img src="https://source.unsplash.com/800x800/?cabin,nature&sig=${i}" alt="Galería ${i}" class="w-full h-full object-cover transition-transform duration-300 hover:scale-110">
         `;
         galleryContainer.appendChild(imgElement);
-    });
+    }
 
     // Contact form submission
     const contactForm = document.getElementById('contact-form');
@@ -137,21 +120,47 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, { threshold: 0.1 });
 
-    fadeElems.forEach(elem => {
-        observer.observe(elem);
+    fadeElems.forEach(elem => observer.observe(elem));
+
+    // Responsive image loading
+    function loadResponsiveImage(img) {
+        const src = img.dataset.src;
+        const srcset = img.dataset.srcset;
+        
+        if (src) img.src = src;
+        if (srcset) img.srcset = srcset;
+    }
+
+    const images = document.querySelectorAll('img[data-src]');
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                loadResponsiveImage(entry.target);
+                observer.unobserve(entry.target);
+            }
+        });
     });
+
+    images.forEach(img => imageObserver.observe(img));
+
+    // Handle window resize
+    function handleResize() {
+        // Add any specific resize logic here
+    }
+
+    window.addEventListener('resize', handleResize);
+    handleResize(); // Call once on load
 });
 
-// Initialize Google Maps
+// Google Maps initialization
 function initMap() {
-    const complejolm = { lat: -34.6157, lng: -68.3382 }; // San Rafael, Mendoza coordinates
+    const complejolm = { lat: -34.6037, lng: -68.3334 }; // Coordinates for San Rafael, Mendoza
     const map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 13,
+        zoom: 15,
         center: complejolm,
     });
     const marker = new google.maps.Marker({
         position: complejolm,
         map: map,
-        title: 'Complejo LM'
     });
 }
