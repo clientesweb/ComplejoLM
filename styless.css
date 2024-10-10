@@ -24,7 +24,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0,0,0.5);
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 .hero > div {
@@ -37,6 +37,8 @@ body {
     transform: translateY(20px);
     transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 }
+
+
 
 .fade-in.visible {
     opacity: 1;
@@ -134,4 +136,61 @@ body {
 
 .animate-pulse {
     animation: pulse 2s infinite;
+}
+
+/* Custom styles for cabin rentals */
+.cabin-card {
+    background-color: #ffffff;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.cabin-card:hover {
+    transform: translateY(-5px);
+}
+
+.cabin-image {
+    height: 200px;
+    object-fit: cover;
+}
+
+.cabin-details {
+    padding: 1.5rem;
+}
+
+.cabin-name {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.cabin-description {
+    font-size: 0.875rem;
+    color: #4b5563;
+    margin-bottom: 1rem;
+}
+
+.cabin-price {
+    font-size: 1.125rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.service-icon {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.gallery-image {
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.gallery-image:hover {
+    transform: scale(1.05);
 }
