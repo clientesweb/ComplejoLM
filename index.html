@@ -3,173 +3,197 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Complejo LM - San Rafael, Mendoza</title>
-    <link rel="stylesheet" href="styless.css">
+    <title>Complejo LM - Tu escape perfecto en San Rafael, Mendoza</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Top Banner -->
-    <div id="top-banner" class="top-banner">
-        <div class="container">
-            <p id="banner-text"></p>
-        </div>
-    </div>
-
-    <!-- Header -->
     <header class="header">
         <div class="container">
-            <nav class="nav">
+            <nav class="navbar">
                 <a href="#" class="logo">Complejo LM</a>
-                <ul class="nav-list" id="nav-list">
+                <ul class="nav-menu">
                     <li><a href="#inicio" class="nav-link">Inicio</a></li>
                     <li><a href="#cabanas" class="nav-link">Cabañas</a></li>
-                    <li><a href="#galeria" class="nav-link">Galería</a></li>
                     <li><a href="#servicios" class="nav-link">Servicios</a></li>
+                    <li><a href="#galeria" class="nav-link">Galería</a></li>
                     <li><a href="#ubicacion" class="nav-link">Ubicación</a></li>
                     <li><a href="#contacto" class="nav-link">Contacto</a></li>
                 </ul>
-                <div class="hamburger" id="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
                 </div>
             </nav>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section id="inicio" class="hero">
-        <div class="hero-slider" id="hero-slider">
-            <!-- Images will be inserted here by JavaScript -->
-        </div>
-        <div class="hero-content">
-            <h1>Bienvenidos a Complejo LM</h1>
-            <p>Tu escape perfecto en San Rafael, Mendoza</p>
-            <a href="#contacto" class="btn">Reserva Ahora</a>
-        </div>
-    </section>
-
-    <!-- Cabins Section -->
-    <section id="cabanas" class="cabins">
-        <div class="container">
-            <h2>Nuestras Cabañas</h2>
-            <div class="cabin-slider" id="cabin-slider">
-                <!-- Cabin content will be inserted here by JavaScript -->
+    <main>
+        <section id="inicio" class="hero">
+            <div class="hero-content">
+                <h1 data-aos="fade-up">Bienvenidos a Complejo LM</h1>
+                <p data-aos="fade-up" data-aos-delay="200">Tu escape perfecto en San Rafael, Mendoza</p>
+                <a href="#contacto" class="btn btn-primary" data-aos="fade-up" data-aos-delay="400">Reserva Ahora</a>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Gallery Section -->
-    <section id="galeria" class="gallery">
-        <div class="container">
-            <h2>Galería</h2>
-            <div class="gallery-grid" id="gallery-grid">
-                <!-- Gallery images will be inserted here by JavaScript -->
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="servicios" class="services">
-        <div class="container">
-            <h2>Nuestros Servicios</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <i class="fas fa-mountain"></i>
-                    <h3>Vistas Panorámicas</h3>
-                    <p>Disfruta de impresionantes vistas a las montañas desde tu cabaña.</p>
-                </div>
-                <div class="service-card">
-                    <i class="fas fa-swimming-pool"></i>
-                    <h3>Piscina</h3>
-                    <p>Relájate en nuestra piscina con vistas al paisaje mendocino.</p>
-                </div>
-                <div class="service-card">
-                    <i class="fas fa-wifi"></i>
-                    <h3>Wi-Fi Gratis</h3>
-                    <p>Mantente conectado con nuestro Wi-Fi de alta velocidad.</p>
-                </div>
-                <div class="service-card">
-                    <i class="fas fa-parking"></i>
-                    <h3>Estacionamiento</h3>
-                    <p>Amplio estacionamiento gratuito para nuestros huéspedes.</p>
+        <section id="cabanas" class="cabanas">
+            <div class="container">
+                <h2 data-aos="fade-up">Nuestras Cabañas</h2>
+                <div class="cabanas-grid">
+                    <div class="cabana-card" data-aos="fade-up">
+                        <img src="https://images.unsplash.com/photo-1587061949409-02df41d5e562?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Cabaña del Bosque">
+                        <h3>Cabaña del Bosque</h3>
+                        <p>Perfecta para parejas, esta cabaña ofrece una experiencia íntima en medio de la naturaleza.</p>
+                        <ul>
+                            <li><i class="fas fa-user"></i> 2 personas</li>
+                            <li><i class="fas fa-dollar-sign"></i> $150 por noche</li>
+                        </ul>
+                        <a href="#" class="btn btn-secondary">Reservar</a>
+                    </div>
+                    <div class="cabana-card" data-aos="fade-up" data-aos-delay="200">
+                        <img src="https://images.unsplash.com/photo-1601918774946-25832a4be0d6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80" alt="Cabaña Familiar">
+                        <h3>Cabaña Familiar</h3>
+                        <p>Espaciosa y cómoda, ideal para familias que buscan un escape tranquilo.</p>
+                        <ul>
+                            <li><i class="fas fa-users"></i> 6 personas</li>
+                            <li><i class="fas fa-dollar-sign"></i> $250 por noche</li>
+                        </ul>
+                        <a href="#" class="btn btn-secondary">Reservar</a>
+                    </div>
+                    <div class="cabana-card" data-aos="fade-up" data-aos-delay="400">
+                        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Cabaña Vista al Lago">
+                        <h3>Cabaña Vista al Lago</h3>
+                        <p>Con impresionantes vistas al lago, perfecta para los amantes de la naturaleza.</p>
+                        <ul>
+                            <li><i class="fas fa-users"></i> 4 personas</li>
+                            <li><i class="fas fa-dollar-sign"></i> $200 por noche</li>
+                        </ul>
+                        <a href="#" class="btn btn-secondary">Reservar</a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Promo Banner -->
-    <section id="promo-banner" class="promo-banner">
-        <div class="container">
-            <div id="promo-content"></div>
-        </div>
-    </section>
-
-    <!-- Location Section -->
-    <section id="ubicacion" class="location">
-        <div class="container">
-            <h2>Ubicación</h2>
-            <div class="location-content">
-                <div class="map-container">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d107134.74394330698!2d-68.40804589622569!3d-34.6280961685901!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x967907fdb13d06a7%3A0x5d70a8a7c066c6c4!2sSan%20Rafael%2C%20Mendoza!5e0!3m2!1ses-419!2sar!4v1697071723154!5m2!1ses-419!2sar" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
-                <div class="location-info">
-                    <h3>Cómo llegar</h3>
-                    <p>Complejo LM está ubicado en el corazón de San Rafael, Mendoza, a solo minutos de las principales atracciones turísticas de la región.</p>
-                    <ul>
-                        <li>A 15 minutos del centro de San Rafael</li>
-                        <li>A 30 minutos del Cañón del Atuel</li>
-                        <li>A 45 minutos de Los Reyunos</li>
-                    </ul>
-                    <p>Dirección exacta: Av. Hipólito Yrigoyen 500, San Rafael, Mendoza</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contacto" class="contact">
-        <div class="container">
-            <h2>Contáctanos</h2>
-            <div class="contact-content">
-                <form class="contact-form">
-                    <input type="text" placeholder="Nombre" required>
-                    <input type="email" placeholder="Email" required>
-                    <textarea placeholder="Mensaje" rows="4" required></textarea>
-                    <button type="submit" class="btn">Enviar Mensaje</button>
-                </form>
-                <div class="contact-info">
-                    <h3>Información de Contacto</h3>
-                    <ul>
-                        <li><i class="fas fa-phone"></i> +54 9 260 444-5678</li>
-                        <li><i class="fas fa-envelope"></i> info@complejolm.com</li>
-                        <li><i class="fas fa-map-marker-alt"></i> Av. Hipólito Yrigoyen 500, San Rafael, Mendoza</li>
-                    </ul>
+        <section id="servicios" class="servicios">
+            <div class="container">
+                <h2 data-aos="fade-up">Nuestros Servicios</h2>
+                <div class="servicios-grid">
+                    <div class="servicio-card" data-aos="fade-up">
+                        <i class="fas fa-mountain"></i>
+                        <h3>Vistas Panorámicas</h3>
+                        <p>Disfruta de impresionantes vistas a las montañas desde tu cabaña.</p>
+                    </div>
+                    <div class="servicio-card" data-aos="fade-up" data-aos-delay="200">
+                        <i class="fas fa-swimming-pool"></i>
+                        <h3>Piscina</h3>
+                        <p>Relájate en nuestra piscina con vistas al paisaje mendocino.</p>
+                    </div>
+                    <div class="servicio-card" data-aos="fade-up" data-aos-delay="400">
+                        <i class="fas fa-wifi"></i>
+                        <h3>Wi-Fi Gratis</h3>
+                        <p>Mantente conectado con nuestro Wi-Fi de alta velocidad.</p>
+                    </div>
+                    <div class="servicio-card" data-aos="fade-up" data-aos-delay="600">
+                        <i class="fas fa-parking"></i>
+                        <h3>Estacionamiento</h3>
+                        <p>Amplio estacionamiento gratuito para nuestros huéspedes.</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Footer -->
+        <section id="galeria" class="galeria">
+            <div class="container">
+                <h2 data-aos="fade-up">Galería</h2>
+                <div class="galeria-grid">
+                    <div class="galeria-item" data-aos="zoom-in">
+                        <img src="https://images.unsplash.com/photo-1587061949409-02df41d5e562?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Imagen 1">
+                    </div>
+                    <div class="galeria-item" data-aos="zoom-in" data-aos-delay="100">
+                        <img src="https://images.unsplash.com/photo-1601918774946-25832a4be0d6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80" alt="Imagen 2">
+                    </div>
+                    <div class="galeria-item" data-aos="zoom-in" data-aos-delay="200">
+                        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Imagen 3">
+                    </div>
+                    <div class="galeria-item" data-aos="zoom-in" data-aos-delay="300">
+                        <img src="https://images.unsplash.com/photo-1521401830884-6c03c1c87ebb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Imagen 4">
+                    </div>
+                    <div class="galeria-item" data-aos="zoom-in" data-aos-delay="400">
+                        <img src="https://images.unsplash.com/photo-1584132967334-10e028bd69f7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Imagen 5">
+                    </div>
+                    <div class="galeria-item" data-aos="zoom-in" data-aos-delay="500">
+                        <img src="https://images.unsplash.com/photo-1518602164578-cd0074062767?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Imagen 6">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="ubicacion" class="ubicacion">
+            <div class="container">
+                <h2 data-aos="fade-up">Ubicación</h2>
+                <div class="ubicacion-content">
+                    <div class="mapa" data-aos="fade-right">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d107134.74394330698!2d-68.40804589622569!3d-34.6280961685901!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x967907fdb13d06a7%3A0x5d70a8a7c066c6c4!2sSan%20Rafael%2C%20Mendoza!5e0!3m2!1ses-419!2sar!4v1697071723154!5m2!1ses-419!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                    <div class="ubicacion-info" data-aos="fade-left">
+                        <h3>Cómo llegar</h3>
+                        <p>Complejo LM está ubicado en el corazón de San Rafael, Mendoza, a solo minutos de las principales atracciones turísticas de la región.</p>
+                        <ul>
+                            <li><i class="fas fa-map-marker-alt"></i> Av. Hipólito Yrigoyen 500, San Rafael, Mendoza</li>
+                            <li><i class="fas fa-clock"></i> A 15 minutos del centro de San Rafael</li>
+                            <li><i class="fas fa-mountain"></i> A 30 minutos del Cañón del Atuel</li>
+                            <li><i class="fas fa-water"></i> A 45 minutos de Los Reyunos</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contacto" class="contacto">
+            <div class="container">
+                <h2 data-aos="fade-up">Contáctanos</h2>
+                <div class="contacto-content">
+                    <form class="contacto-form" data-aos="fade-right">
+                        <input type="text" placeholder="Nombre" required>
+                        <input type="email" placeholder="Email" required>
+                        <textarea placeholder="Mensaje" required></textarea>
+                        <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
+                    </form>
+                    <div class="contacto-info" data-aos="fade-left">
+                        <h3>Información de Contacto</h3>
+                        <ul>
+                            <li><i class="fas fa-phone"></i> +54 9 260 444-5678</li>
+                            <li><i class="fas fa-envelope"></i> info@complejolm.com</li>
+                            <li><i class="fas fa-map-marker-alt"></i> Av. Hipólito Yrigoyen 500, San Rafael, Mendoza</li>
+                        </ul>
+                        <div class="social-media">
+                            <a href="#"   class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"  class="social-icon"><i class="fab fa-instagram"></i></a>
+                            <a href="#"  class="social-icon"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
                     <h3>Complejo LM</h3>
                     <p>Tu hogar lejos de casa en San Rafael, Mendoza</p>
-                    <div class="social-icons">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                    </div>
                 </div>
                 <div class="footer-section">
                     <h3>Enlaces Rápidos</h3>
                     <ul>
                         <li><a href="#inicio">Inicio</a></li>
                         <li><a href="#cabanas">Cabañas</a></li>
-                        <li><a href="#galeria">Galería</a></li>
                         <li><a href="#servicios">Servicios</a></li>
+                        <li><a href="#galeria">Galería</a></li>
                         <li><a href="#ubicacion">Ubicación</a></li>
                         <li><a href="#contacto">Contacto</a></li>
                     </ul>
@@ -182,12 +206,13 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; <span id="current-year"></span> Complejo LM. Todos los derechos reservados.</p>
+                <p>&copy; 2023 Complejo LM. Todos los derechos reservados.</p>
                 <p>Powered by Duality Domain</p>
             </div>
         </div>
     </footer>
 
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
