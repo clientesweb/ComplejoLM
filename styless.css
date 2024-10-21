@@ -965,3 +965,170 @@ code {
         content: " (" attr(href) ")";
     }
 }
+/* Añadir al principio del archivo */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    overflow-x: hidden; /* Previene el desbordamiento horizontal */
+    width: 100%;
+    max-width: 100%;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px; /* Reducir el padding en móviles */
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Ajustar el header */
+.header {
+    width: 100%;
+}
+
+.navbar {
+    flex-wrap: wrap;
+}
+
+/* Ajustar el hero */
+.hero {
+    height: auto;
+    min-height: 100vh;
+}
+
+.hero .swiper-slide {
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+}
+
+/* Ajustar las secciones de cabañas y servicios */
+.cabanas-grid,
+.servicios-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+/* Ajustar la galería */
+.galeria-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+/* Ajustar la sección de ubicación */
+.ubicacion-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.mapa,
+.ubicacion-info {
+    flex: 1 1 300px;
+}
+
+/* Ajustar la sección de contacto */
+.contacto-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.contacto-form,
+.contacto-info {
+    flex: 1 1 300px;
+}
+
+/* Ajustar el footer */
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.footer-section {
+    flex: 1 1 250px;
+}
+
+/* Mejorar la responsividad del menú de navegación */
+@media (max-width: 768px) {
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 5rem;
+        flex-direction: column;
+        background-color: var(--white);
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .nav-item {
+        margin: 2.5rem 0;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+}
+
+/* Ajustar el tamaño de fuente para móviles */
+@media (max-width: 576px) {
+    body {
+        font-size: 14px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.75rem;
+    }
+
+    h3 {
+        font-size: 1.5rem;
+    }
+}
+
+/* Asegurar que los iframes (como el mapa) sean responsivos */
+iframe {
+    max-width: 100%;
+}
+
+/* Ajustar el botón flotante de WhatsApp para móviles */
+@media (max-width: 576px) {
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        right: 20px;
+        font-size: 25px;
+    }
+}
