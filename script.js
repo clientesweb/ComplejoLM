@@ -62,23 +62,6 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   // Cabin Modal Functionality
-  const modalButtons = document.querySelectorAll('[data-modal-target]');
-  const modalCloseButtons = document.querySelectorAll('.modal-close');
-
-  modalButtons.forEach(button => {
-      button.addEventListener('click', () => {
-          const modal = document.querySelector(button.dataset.modalTarget);
-          openModal(modal);
-      });
-  });
-
-  modalCloseButtons.forEach(button => {
-      button.addEventListener('click', () => {
-          const modal = button.closest('.fixed');
-          closeModal(modal);
-      });
-  });
-
   function openModal(modal) {
       if (modal == null) return;
       modal.classList.remove('hidden');
@@ -142,7 +125,7 @@ document.addEventListener('DOMContentLoaded', function() {
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
           e.preventDefault();
-          document.querySelector(this.getAttribute('href')).scrollInView({
+          document.querySelector(this.getAttribute('href')).scrollIntoView({
               behavior: 'smooth'
           });
       });
@@ -172,12 +155,85 @@ document.addEventListener('DOMContentLoaded', function() {
       });
   });
 
-  // Reservation buttons in cabin modals
-  const reservationButtons = document.querySelectorAll('.btn-primary');
-  reservationButtons.forEach(button => {
-      button.addEventListener('click', function() {
-          const cabinName = this.closest('.fixed').querySelector('h3').textContent;
-          alert(`Gracias por tu interés en reservar ${cabinName}. Te contactaremos pronto para confirmar tu reserva.`);
+  // Load cabins dynamically
+  function cargarCabanas() {
+    fetch('cabanas.json')
+      .then(response => response.json())
+      .then(data => {
+        const cabanasContainer = document.querySelector('#cabanas .grid');
+        cabanasContainer.innerHTML = '';
+
+        data.cabanas.forEach(cabana => {
+          const cabanaHTML = `
+            <div class="cabana-card bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:scale-105" data-aos="fade-up">
+              <img src="${cabana.imagen}" alt="${cabana.nombre}" class="w-full h-48 object-cover">
+              <div class="p-4">
+                <h3 class="text-xl font-bold mb-2">${cabana.nombre}</h3>
+                <p class="mb-4">${cabana.descripcion}</p>
+                <ul class="mb-4">
+                  <li><i class="fas fa-user mr-2"></i> ${cabana.capacidad} personas</li>
+                  <li><i class="fas fa-dollar-sign mr-2"></i> $${cabana.precio} por noche</li>
+                </ul>
+                <button class="btn btn-secondary block w-full text-center" data-modal-target="#modal-${cabana.id}">Ver más</button>
+              </div>
+            </div>
+          `;
+          cabanasContainer.innerHTML += cabanaHTML;
+        });
+
+        crearModales(data.cabanas);
+        inicializarModales();
       });
-  });
+  }
+
+  function crearModales(cabanas) {
+    const body = document.body;
+    cabanas.forEach(cabana => {
+      const modal = document.createElement('div');
+      modal.id = `modal-${cabana.id}`;
+      modal.className = 'fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center hidden';
+      modal.innerHTML = `
+        <div class="bg-white rounded-lg p-8 max-w-3xl w-full mx-4">
+          <h3 class="text-2xl font-bold mb-4">${cabana.nombre}</h3>
+          <div class="swiper-container mb-4">
+            <div class="swiper-wrapper">
+              ${cabana.imagenes.map(img => `<div class="swiper-slide"><img src="${img}" alt="${cabana.nombre}" class="w-full h-64 object-cover rounded-lg"></div>`).join('')}
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+          </div>
+          <p class="mb-4">${cabana.descripcion}</p>
+          <ul class="mb-4">
+            ${cabana.detalles.map(detalle => `<li><i class="fas fa-check mr-2"></i>${detalle}</li>`).join('')}
+          </ul>
+          <button class="btn btn-primary mr-2">Reservar ahora</button>
+          <button class="btn btn-secondary modal-close">Cerrar</button>
+        </div>
+      `;
+      body.appendChild(modal);
+    });
+  }
+
+  function inicializarModales() {
+    const modalButtons = document.querySelectorAll('[data-modal-target]');
+    const modalCloseButtons = document.querySelectorAll('.modal-close');
+
+    modalButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const modal = document.querySelector(button.dataset.modalTarget);
+        openModal(modal);
+      });
+    });
+
+    modalCloseButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const modal = button.closest('.fixed');
+        closeModal(modal);
+      });
+    });
+  }
+
+  // Load cabins when the DOM is ready
+  cargarCabanas();
 });
