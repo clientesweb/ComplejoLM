@@ -1,0 +1,84 @@
+{
+  "cabanas": [
+    {
+      "id": "1",
+      "nombre": "Cabaña del Bosque",
+      "descripcion": "Cabaña acogedora rodeada de naturaleza, perfecta para una escapada romántica.",
+      "capacidad": 2,
+      "precio": 5000,
+      "imagen": "https://images.unsplash.com/photo-1587061949409-02df41d5e562?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+      "imagenes": [
+        "https://images.unsplash.com/photo-1587061949409-02df41d5e562?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+        "https://images.unsplash.com/photo-1601918774946-25832a4be0d6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80",
+        "https://images.unsplash.com/photo-1601919308630-1a3b7e0c6c1e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+      ],
+      "detalles": [
+        "1 habitación con cama matrimonial",
+        "Baño privado con ducha",
+        "Cocina equipada",
+        "Sala de estar con chimenea",
+        "Terraza con vista al bosque"
+      ]
+    },
+    {
+      "id": "2",
+      "nombre": "Cabaña Familiar",
+      "descripcion": "Espaciosa cabaña ideal para familias, con todas las comodidades para una estancia perfecta.",
+      "capacidad": 6,
+      "precio": 8000,
+      "imagen": "https://images.unsplash.com/photo-1601918774946-25832a4be0d6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80",
+      "imagenes": [
+        "https://images.unsplash.com/photo-1601918774946-25832a4be0d6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80",
+        "https://images.unsplash.com/photo-1601919308630-1a3b7e0c6c1e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+        "https://images.unsplash.com/photo-1587061949409-02df41d5e562?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+      ],
+      "detalles": [
+        "3 habitaciones (2 con cama matrimonial, 1 con dos camas individuales)",
+        "2 baños completos",
+        "Cocina totalmente equipada",
+        "Amplio salón comedor",
+        "Terraza con parrilla"
+      ]
+    },
+    {
+      "id": "3",
+      "nombre": "Suite de Montaña",
+      "descripcion": "Lujosa suite con vistas panorámicas a las montañas, perfecta para una experiencia premium.",
+      "capacidad": 2,
+      "precio": 7000,
+      "imagen": "https://images.unsplash.com/photo-1601919051950-bb9f3ffb3bcd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+      "imagenes": [
+        "https://images.unsplash.com/photo-1601919051950-bb9f3ffb3bcd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+        "https://images.unsplash.com/photo-1587061949409-02df41d5e562?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+        "https://images.unsplash.com/photo-1601918774946-25832a4be0d6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80"
+      ],
+      "detalles": [
+        "Amplia habitación con cama king size",
+        "Baño de lujo con jacuzzi",
+        "Sala de estar con chimenea",
+        "Cocina gourmet",
+        "Terraza privada con vistas panorámicas"
+      ]
+    },
+    {
+      "id": "4",
+      "nombre": "Cabaña del Lago",
+      "descripcion": "Hermosa cabaña a orillas del lago, ideal para los amantes de la naturaleza y la tranquilidad.",
+      "capacidad": 4,
+      "precio": 6000,
+      "imagen": "https://images.unsplash.com/photo-1601919308630-1a3b7e0c6c1e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+      "imagenes": [
+        "https://images.unsplash.com/photo-1601919308630-1a3b7e0c6c1e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+        "https://images.unsplash.com/photo-1601919051950-bb9f3ffb3bcd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+        "https://images.unsplash.com/photo-1587061949409-02df41d5e562?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+      ],
+      "detalles": [
+        "2 habitaciones (1 con cama matrimonial, 1 con dos camas individuales)",
+        "Baño completo",
+        "Cocina equipada",
+        "Sala de estar con vista al lago",
+        "Muelle privado con acceso directo al lago"
+      ]
+    }
+  ]
+}
