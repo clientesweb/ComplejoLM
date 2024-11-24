@@ -53,58 +53,9 @@
     </script>
     
     <!-- Custom CSS -->
-    <style>
-        /* Estilos adicionales que no se pueden lograr fácilmente con Tailwind */
-        .top-banner .swiper-slide {
-            text-align: center;
-        }
-        
-        .hero .swiper-slide {
-            background-size: cover;
-            background-position: center;
-        }
-        
-        .whatsapp-float:hover {
-            background-color: #128C7E;
-        }
-        
-        @media (max-width: 768px) {
-            .nav-menu {
-                position: fixed;
-                left: -100%;
-                top: 5rem;
-                flex-direction: column;
-                background-color: #fff;
-                width: 100%;
-                text-align: center;
-                transition: 0.3s;
-                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
-            }
-
-            .nav-menu.active {
-                left: 0;
-            }
-        }
-
-        .nav-menu {
-            transition: left 0.3s ease-in-out;
-        }
-
-        @media (max-width: 768px) {
-            .nav-menu {
-                left: -100%;
-                width: 100%;
-                height: calc(100vh - 5rem);
-                overflow-y: auto;
-            }
-
-            .nav-menu.active {
-                left: 0;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body class="font-poppins text-text-color bg-bg-color">
+<body class="font-poppins text-text-color bg-bg-color overflow-x-hidden">
     <!-- Top Banner -->
     <div id="top-banner" class="bg-accent text-text-color text-center py-2 relative overflow-hidden">
         <div class="swiper top-banner-swiper">
@@ -124,7 +75,7 @@
     </div>
 
     <header class="bg-white shadow-md sticky top-0 w-full z-50">
-        <div class="container mx-auto px-4">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <nav class="flex justify-between items-center py-4">
                 <a href="#" class="flex items-center">
                     <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot_20241123-214058-3vpecx4b30fJRZnqVitngmksFmQInc.png" alt="Casitas de Montaña Logo" class="h-12 w-auto mr-2">
@@ -166,7 +117,7 @@
         </section>
 
         <section id="cabanas" class="py-16 bg-white">
-            <div class="container mx-auto px-4">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <h2 class="text-3xl font-bold text-center mb-8" data-aos="fade-up">Nuestras Cabañas</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                     <!-- Las cabañas se cargarán dinámicamente aquí -->
@@ -175,7 +126,7 @@
         </section>
 
         <section id="servicios" class="py-16 bg-bg-color">
-            <div class="container mx-auto px-4">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <h2 class="text-3xl font-bold text-center mb-8" data-aos="fade-up">Nuestros Servicios</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <div class="service-card bg-white rounded-lg shadow-md p-6 transition-transform hover:scale-105" data-aos="fade-up">
@@ -213,7 +164,7 @@
         </section>
 
         <section id="resenas" class="py-16 bg-white">
-            <div class="container mx-auto px-4">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <h2 class="text-3xl font-bold text-center mb-8" data-aos="fade-up">Lo que dicen nuestros huéspedes</h2>
                 <div class="swiper reviewsSwiper" data-aos="fade-up">
                     <div class="swiper-wrapper">
@@ -278,9 +229,9 @@
         </section>
 
         <section id="galeria" class="py-16 bg-bg-color">
-            <div class="container mx-auto px-4">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <h2 class="text-3xl font-bold text-center mb-8" data-aos="fade-up">Galería</h2>
-                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                     <div class="gallery-item" data-aos="fade-up">
                         <img src="https://images.unsplash.com/photo-1601919308630-1a3b7e0c6c1e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Galería 1" class="w-full h-40 object-cover rounded-lg shadow-md">
                     </div>
@@ -298,10 +249,10 @@
         </section>
 
         <section id="ubicacion" class="py-16 bg-white">
-            <div class="container mx-auto px-4">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <h2 class="text-3xl font-bold text-center mb-8" data-aos="fade-up">Ubicación</h2>
-                <div class="flex flex-col md:flex-row items-center justify-between">
-                    <div class="w-full md:w-1/2 mb-8 md:mb-0" data-aos="fade-right">
+                <div class="flex flex-col md:flex-row items-center justify-between space-y-8 md:space-y-0 md:space-x-8">
+                    <div class="w-full md:w-1/2" data-aos="fade-right">
                         <h3 class="text-2xl font-semibold mb-4">Cómo llegar</h3>
                         <p class="mb-4">Estamos ubicados en Los Hornillos, Traslasierra, Córdoba. A solo 15 minutos de Mina Clavero y 20 minutos de Nono.</p>
                         <ul class="list-disc list-inside mb-4">
@@ -319,10 +270,10 @@
         </section>
 
         <section id="contacto" class="py-16 bg-bg-color">
-            <div class="container mx-auto px-4">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <h2 class="text-3xl font-bold text-center mb-8" data-aos="fade-up">Contacto</h2>
-                <div class="flex flex-col md:flex-row items-start justify-between">
-                    <div class="w-full md:w-1/2 mb-8 md:mb-0" data-aos="fade-right">
+                <div class="flex flex-col md:flex-row items-start justify-between space-y-8 md:space-y-0 md:space-x-8">
+                    <div class="w-full md:w-1/2" data-aos="fade-right">
                         <h3 class="text-2xl font-semibold mb-4">Información de contacto</h3>
                         <ul class="space-y-2">
                             <li><i class="fas fa-phone mr-2"></i> +54 351 763-6461</li>
@@ -361,7 +312,7 @@
     </main>
 
     <footer class="bg-gray-800 text-white py-12">
-        <div class="container mx-auto px-4">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div>
                     <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot_20241123-214058-3vpecx4b30fJRZnqVitngmksFmQInc.png" alt="Casitas de Montaña Logo" class="h-12 w-auto mb-4">
@@ -409,13 +360,12 @@
     </footer>
 
     <!-- WhatsApp Floating Button -->
-    <a href="https://wa.me/543517636461" class="fixed bottom-4 right-4 bg-green-500 text-white rounded-full w-14 h-14 flex items-center justify-center text-2xl shadow-lg hover:bg-green-600 transition-colors whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
+    <a href="https://wa.me/543517636461" class="fixed bottom-4 right-4 bg-green-500 text-white rounded-full w-14 h-14 flex items-center justify-center text-2xl shadow-lg hover:bg-green-600 transition-colors whatsapp-float z-50" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
 
     <!-- AOS Script -->
-    <script data-cfasync="false" src="/cdn-c
-gi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <!-- Custom JS -->
