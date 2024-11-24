@@ -22,6 +22,15 @@
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -43,14 +52,40 @@
         }
     </script>
     
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- AOS CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    
-    <!-- Swiper CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <!-- Custom CSS -->
+    <style>
+        /* Estilos adicionales que no se pueden lograr fácilmente con Tailwind */
+        .top-banner .swiper-slide {
+            text-align: center;
+        }
+        
+        .hero .swiper-slide {
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .whatsapp-float:hover {
+            background-color: #128C7E;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 5rem;
+                flex-direction: column;
+                background-color: #fff;
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+        }
+    </style>
 </head>
 <body class="font-poppins text-text-color bg-bg-color">
     <!-- Top Banner -->
@@ -72,31 +107,33 @@
     </div>
 
     <header class="bg-white shadow-md sticky top-0 w-full z-50">
-        <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold text-primary">Complejo LM</a>
-            <ul class="hidden md:flex space-x-4">
-                <li><a href="#inicio" class="hover:text-primary transition-colors">Inicio</a></li>
-                <li><a href="#cabanas" class="hover:text-primary transition-colors">Cabañas</a></li>
-                <li><a href="#servicios" class="hover:text-primary transition-colors">Servicios</a></li>
-                <li><a href="#galeria" class="hover:text-primary transition-colors">Galería</a></li>
-                <li><a href="#ubicacion" class="hover:text-primary transition-colors">Ubicación</a></li>
-                <li><a href="#contacto" class="hover:text-primary transition-colors">Contacto</a></li>
-            </ul>
-            <div class="hidden md:flex space-x-2">
-                <a href="#" class="text-lg hover:text-primary transition-colors" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="text-lg hover:text-primary transition-colors" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="text-lg hover:text-primary transition-colors" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-            </div>
-            <button class="md:hidden" aria-label="Menú">
-                <span class="block w-6 h-0.5 bg-text-color mb-1"></span>
-                <span class="block w-6 h-0.5 bg-text-color mb-1"></span>
-                <span class="block w-6 h-0.5 bg-text-color"></span>
-            </button>
-        </nav>
+        <div class="container mx-auto px-4">
+            <nav class="flex justify-between items-center py-4">
+                <a href="#" class="text-2xl font-bold text-primary">Complejo LM</a>
+                <ul class="nav-menu hidden md:flex space-x-4">
+                    <li><a href="#inicio" class="nav-link hover:text-primary transition-colors">Inicio</a></li>
+                    <li><a href="#cabanas" class="nav-link hover:text-primary transition-colors">Cabañas</a></li>
+                    <li><a href="#servicios" class="nav-link hover:text-primary transition-colors">Servicios</a></li>
+                    <li><a href="#galeria" class="nav-link hover:text-primary transition-colors">Galería</a></li>
+                    <li><a href="#ubicacion" class="nav-link hover:text-primary transition-colors">Ubicación</a></li>
+                    <li><a href="#contacto" class="nav-link hover:text-primary transition-colors">Contacto</a></li>
+                </ul>
+                <div class="hidden md:flex space-x-2">
+                    <a href="#" class="social-icon text-lg hover:text-primary transition-colors" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon text-lg hover:text-primary transition-colors" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon text-lg hover:text-primary transition-colors" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                </div>
+                <button class="hamburger md:hidden" aria-label="Menú">
+                    <span class="block w-6 h-0.5 bg-text-color mb-1"></span>
+                    <span class="block w-6 h-0.5 bg-text-color mb-1"></span>
+                    <span class="block w-6 h-0.5 bg-text-color"></span>
+                </button>
+            </nav>
+        </div>
     </header>
 
     <main>
-        <section id="inicio" class="relative h-screen flex items-center justify-center text-center text-white overflow-hidden">
+        <section id="inicio" class="hero relative h-screen flex items-center justify-center text-center text-white overflow-hidden">
             <div class="swiper mySwiper absolute inset-0">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');"></div>
@@ -105,20 +142,68 @@
                 </div>
                 <div class="swiper-pagination"></div>
             </div>
-            <div class="relative z-10 max-w-4xl mx-auto px-4">
+            <div class="hero-content relative z-10 max-w-4xl mx-auto px-4">
                 <h1 class="text-4xl md:text-5xl font-bold mb-4" data-aos="fade-up">Bienvenidos a Complejo LM</h1>
                 <p class="text-xl mb-8" data-aos="fade-up" data-aos-delay="200">Tu escape perfecto en San Rafael, Mendoza</p>
-                <a href="#contacto" class="bg-primary hover:bg-secondary text-white font-bold py-2 px-4 rounded transition-colors" data-aos="fade-up" data-aos-delay="400">Reserva Ahora</a>
+                <a href="#contacto" class="btn btn-primary text-white font-bold py-2 px-4 rounded transition-colors" data-aos="fade-up" data-aos-delay="400">Reserva Ahora</a>
             </div>
         </section>
 
-        <!-- Resto de las secciones... -->
+        <section id="cabanas" class="py-16 bg-white">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold text-center mb-8" data-aos="fade-up">Nuestras Cabañas</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="cabana-card bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:scale-105" data-aos="fade-up">
+                        <img src="https://images.unsplash.com/photo-1587061949409-02df41d5e562?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Cabaña del Bosque" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="text-xl font-bold mb-2">Cabaña del Bosque</h3>
+                            <p class="mb-4">Perfecta para parejas, esta cabaña ofrece una experiencia íntima en medio de la naturaleza.</p>
+                            <ul class="mb-4">
+                                <li><i class="fas fa-user mr-2"></i> 2 personas</li>
+                                <li><i class="fas fa-dollar-sign mr-2"></i> $150 por noche</li>
+                            </ul>
+                            <div class="cabin-services flex flex-wrap gap-2 mb-4">
+                                <span class="bg-bg-color px-2 py-1 rounded-full text-sm"><i class="fas fa-wifi mr-1"></i> Wi-Fi</span>
+                                <span class="bg-bg-color px-2 py-1 rounded-full text-sm"><i class="fas fa-tv mr-1"></i> TV</span>
+                                <span class="bg-bg-color px-2 py-1 rounded-full text-sm"><i class="fas fa-utensils mr-1"></i> Cocina</span>
+                                <span class="bg-bg-color px-2 py-1 rounded-full text-sm"><i class="fas fa-parking mr-1"></i> Estacionamiento</span>
+                            </div>
+                            <a href="#" class="btn btn-secondary whatsapp-btn block text-center" data-cabin="Cabaña del Bosque">Reservar</a>
+                        </div>
+                    </div>
+                    <!-- Repite este bloque para las otras cabañas -->
+                </div>
+            </div>
+        </section>
 
+        <!-- Otras secciones (servicios, galería, ubicación, contacto) siguen un patrón similar -->
+
+        <section id="advertising" class="py-16 bg-bg-color">
+            <div class="container mx-auto px-4">
+                <div class="swiper adSwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide relative">
+                            <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Oferta Especial" class="w-full h-64 object-cover rounded-lg">
+                            <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                                <div class="text-center text-white">
+                                    <h3 class="text-2xl font-bold mb-2">Oferta Especial</h3>
+                                    <p class="mb-4">20% de descuento en reservas de 3 noches o más</p>
+                                    <a href="#contacto" class="btn btn-primary">Reserva Ahora</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Repite este bloque para los otros anuncios -->
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer class="bg-gray-800 text-white py-12">
         <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-3
+gap-8">
                 <div>
                     <h3 class="text-xl font-bold mb-4">Complejo LM</h3>
                     <p class="mb-4">Tu hogar lejos de casa en San Rafael, Mendoza. Disfruta de la naturaleza y el confort en nuestras cabañas.</p>
@@ -160,7 +245,7 @@
     </footer>
 
     <!-- WhatsApp Floating Button -->
-    <a href="https://wa.me/5492604445678" class="fixed bottom-4 right-4 bg-green-500 text-white rounded-full w-14 h-14 flex items-center justify-center text-2xl shadow-lg hover:bg-green-600 transition-colors" target="_blank" aria-label="Contactar por WhatsApp">
+    <a href="https://wa.me/5492604445678" class="whatsapp-float fixed bottom-4 right-4 bg-green-500 text-white rounded-full w-14 h-14 flex items-center justify-center text-2xl shadow-lg hover:bg-green-600 transition-colors" target="_blank" aria-label="Contactar por WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
 
