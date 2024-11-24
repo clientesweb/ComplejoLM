@@ -3,28 +3,30 @@ document.addEventListener('DOMContentLoaded', function() {
     AOS.init();
 
     // Mobile Menu Toggle
-    const hamburger = document.querySelector(".hamburger");
-    const navMenu = document.querySelector(".nav-menu");
+    const hamburger = document.querySelector("button[aria-label='Menú']");
+    const navMenu = document.querySelector("ul");
 
     hamburger.addEventListener("click", mobileMenu);
 
     function mobileMenu() {
         hamburger.classList.toggle("active");
-        navMenu.classList.toggle("active");
+        navMenu.classList.toggle("hidden");
+        navMenu.classList.toggle("flex");
     }
 
     // Close mobile menu when clicking on a nav link
-    const navLink = document.querySelectorAll(".nav-link");
+    const navLinks = document.querySelectorAll(".nav-link");
 
-    navLink.forEach(n => n.addEventListener("click", closeMenu));
+    navLinks.forEach(link => link.addEventListener("click", closeMenu));
 
     function closeMenu() {
         hamburger.classList.remove("active");
-        navMenu.classList.remove("active");
+        navMenu.classList.add("hidden");
+        navMenu.classList.remove("flex");
     }
 
     // Hero Swiper
-    const swiper = new Swiper('.mySwiper', {
+    new Swiper('.mySwiper', {
         spaceBetween: 30,
         effect: 'fade',
         loop: true,
@@ -43,14 +45,15 @@ document.addEventListener('DOMContentLoaded', function() {
     whatsappButtons.forEach(button => {
         button.addEventListener('click', function(e) {
             e.preventDefault();
-            const cabin = this.getAttribute('data-cabin');
+            
+const cabin = this.getAttribute('data-cabin');
             const message = encodeURIComponent(`Hola, estoy interesado en reservar la ${cabin}. ¿Podrían darme más información?`);
             window.open(`https://wa.me/5492604445678?text=${message}`, '_blank');
         });
     });
 
     // Advertising Banner Swiper
-    const adSwiper = new Swiper('.adSwiper', {
+    new Swiper('.adSwiper', {
         spaceBetween: 30,
         loop: true,
         autoplay: {
@@ -64,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Top Banner Swiper
-    const topBannerSwiper = new Swiper('.top-banner-swiper', {
+    new Swiper('.top-banner-swiper', {
         direction: 'horizontal',
         loop: true,
         autoplay: {
@@ -75,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Close Top Banner
     const closeBannerBtn = document.getElementById('close-banner');
-    const topBanner = document.querySelector('.top-banner');
+    const topBanner = document.querySelector('#top-banner');
 
     if (closeBannerBtn && topBanner) {
         closeBannerBtn.addEventListener('click', function() {
@@ -83,3 +86,4 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
