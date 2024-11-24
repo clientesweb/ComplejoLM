@@ -85,6 +85,23 @@
                 left: 0;
             }
         }
+
+        .nav-menu {
+            transition: left 0.3s ease-in-out;
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 5rem);
+                overflow-y: auto;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+        }
     </style>
 </head>
 <body class="font-poppins text-text-color bg-bg-color">
@@ -137,14 +154,10 @@
 
     <main>
         <section id="inicio" class="hero relative h-screen flex items-center justify-center text-center text-white overflow-hidden">
-            <div class="swiper mySwiper absolute inset-0">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');"></div>
-                    <div class="swiper-slide bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');"></div>
-                    <div class="swiper-slide bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1584132967334-10e028bd69f7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');"></div>
-                </div>
-                <div class="swiper-pagination"></div>
-            </div>
+            <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover">
+                <source src="ruta_a_tu_video.mp4" type="video/mp4">
+                Tu navegador no soporta el tag de video.
+            </video>
             <div class="hero-content relative z-10 max-w-4xl mx-auto px-4">
                 <h1 class="text-4xl md:text-5xl font-bold mb-4" data-aos="fade-up">Bienvenidos a Casitas de Montaña</h1>
                 <p class="text-xl mb-8" data-aos="fade-up" data-aos-delay="200">Tu escape perfecto en Los Hornillos, Traslasierra</p>
@@ -156,55 +169,7 @@
             <div class="container mx-auto px-4">
                 <h2 class="text-3xl font-bold text-center mb-8" data-aos="fade-up">Nuestras Cabañas</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <div class="cabana-card bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:scale-105" data-aos="fade-up">
-                        <img src="https://images.unsplash.com/photo-1587061949409-02df41d5e562?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Casita Boutique" class="w-full h-48 object-cover">
-                        <div class="p-4">
-                            <h3 class="text-xl font-bold mb-2">Casita Boutique</h3>
-                            <p class="mb-4">Perfecta para parejas, esta cabaña ofrece una experiencia íntima en medio de la naturaleza.</p>
-                            <ul class="mb-4">
-                                <li><i class="fas fa-user mr-2"></i> 2 personas</li>
-                                <li><i class="fas fa-dollar-sign mr-2"></i> $150 por noche</li>
-                            </ul>
-                            <button class="btn btn-secondary block w-full text-center" data-modal-target="modal-casita-boutique">Ver más</button>
-                        </div>
-                    </div>
-                    <div class="cabana-card bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:scale-105" data-aos="fade-up" data-aos-delay="100">
-                        <img src="https://images.unsplash.com/photo-1601919051950-bb9f3ffb3bcd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Casita Montaña" class="w-full h-48 object-cover">
-                        <div class="p-4">
-                            <h3 class="text-xl font-bold mb-2">Casita Montaña</h3>
-                            <p class="mb-4">Con vistas panorámicas a las sierras, esta cabaña es ideal para los amantes de la naturaleza.</p>
-                            <ul class="mb-4">
-                                <li><i class="fas fa-user mr-2"></i> 4 personas</li>
-                                <li><i class="fas fa-dollar-sign mr-2"></i> $200 por noche</li>
-                            </ul>
-                            <button class="btn btn-secondary block w-full text-center" data-modal-target="modal-casita-montana">Ver más</button>
-                        </div>
-                    </div>
-                    <div class="cabana-card bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:scale-105" data-aos="fade-up" data-aos-delay="200">
-                        <img src="https://images.unsplash.com/photo-1601918774946-25832a4be0d6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&
-q=80" alt="Casita Sierra" class="w-full h-48 object-cover">
-                        <div class="p-4">
-                            <h3 class="text-xl font-bold mb-2">Casita Sierra</h3>
-                            <p class="mb-4">Espaciosa y cómoda, perfecta para familias o grupos de amigos que buscan tranquilidad.</p>
-                            <ul class="mb-4">
-                                <li><i class="fas fa-user mr-2"></i> 6 personas</li>
-                                <li><i class="fas fa-dollar-sign mr-2"></i> $250 por noche</li>
-                            </ul>
-                            <button class="btn btn-secondary block w-full text-center" data-modal-target="modal-casita-sierra">Ver más</button>
-                        </div>
-                    </div>
-                    <div class="cabana-card bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:scale-105" data-aos="fade-up" data-aos-delay="300">
-                        <img src="https://images.unsplash.com/photo-1601919308630-1a3b7e0c6c1e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Casita Campo" class="w-full h-48 object-cover">
-                        <div class="p-4">
-                            <h3 class="text-xl font-bold mb-2">Casita Campo</h3>
-                            <p class="mb-4">Rodeada de naturaleza, esta cabaña ofrece una experiencia rústica y acogedora.</p>
-                            <ul class="mb-4">
-                                <li><i class="fas fa-user mr-2"></i> 4 personas</li>
-                                <li><i class="fas fa-dollar-sign mr-2"></i> $180 por noche</li>
-                            </ul>
-                            <button class="btn btn-secondary block w-full text-center" data-modal-target="modal-casita-campo">Ver más</button>
-                        </div>
-                    </div>
+                    <!-- Las cabañas se cargarán dinámicamente aquí -->
                 </div>
             </div>
         </section>
@@ -297,271 +262,163 @@ q=80" alt="Casita Sierra" class="w-full h-48 object-cover">
                                         <div class="text-yellow-400">
                                             <i class="fas fa-star"></i>
                                             <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p>"Un lugar perfecto para desconectar. La tranquilidad y la naturaleza hacen que quieras quedarte para siempre."</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <p>"Un lugar perfecto para desconectar. La tranquilidad y la naturaleza hacen que quieras quedarte para siempre."</p>
-            </div>
-        </div>
-    </div>
-    <div class="swiper-pagination"></div>
-</div>
-</div>
-</section>
-
-<section id="galeria" class="py-16 bg-bg-color">
-<div class="container mx-auto px-4">
-    <h2 class="text-3xl font-bold text-center mb-8" data-aos="fade-up">Galería</h2>
-    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-        <div class="gallery-item" data-aos="fade-up">
-            <img src="https://images.unsplash.com/photo-1601919308630-1a3b7e0c6c1e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Galería 1" class="w-full h-40 object-cover rounded-lg shadow-md">
-        </div>
-        <div class="gallery-item" data-aos="fade-up" data-aos-delay="100">
-            <img src="https://images.unsplash.com/photo-1601918774946-25832a4be0d6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80" alt="Galería 2" class="w-full h-40 object-cover rounded-lg shadow-md">
-        </div>
-        <div class="gallery-item" data-aos="fade-up" data-aos-delay="200">
-            <img src="https://images.unsplash.com/photo-1601919051950-bb9f3ffb3bcd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Galería 3" class="w-full h-40 object-cover rounded-lg shadow-md">
-        </div>
-        <div class="gallery-item" data-aos="fade-up" data-aos-delay="300">
-            <img src="https://images.unsplash.com/photo-1587061949409-02df41d5e562?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Galería 4" class="w-full h-40 object-cover rounded-lg shadow-md">
-        </div>
-    </div>
-</div>
-</section>
-
-<section id="ubicacion" class="py-16 bg-white">
-<div class="container mx-auto px-4">
-    <h2 class="text-3xl font-bold text-center mb-8" data-aos="fade-up">Ubicación</h2>
-    <div class="flex flex-col md:flex-row items-center justify-between">
-        <div class="w-full md:w-1/2 mb-8 md:mb-0" data-aos="fade-right">
-            <h3 class="text-2xl font-semibold mb-4">Cómo llegar</h3>
-            <p class="mb-4">Estamos ubicados en Los Hornillos, Traslasierra, Córdoba. A solo 15 minutos de Mina Clavero y 20 minutos de Nono.</p>
-            <ul class="list-disc list-inside mb-4">
-                <li>Desde Córdoba Capital: 3 horas por ruta</li>
-                <li>Desde Villa Dolores: 45 minutos</li>
-                <li>Desde Buenos Aires: 10 horas por ruta</li>
-            </ul>
-            <a href="https://goo.gl/maps/XXXXXXXX" target="_blank" class="btn btn-primary">Ver en Google Maps</a>
-        </div>
-        <div class="w-full md:w-1/2" data-aos="fade-left">
-            <img src="https://via.placeholder.com/600x400" alt="Mapa de ubicación" class="w-full rounded-lg shadow-md">
-        </div>
-    </div>
-</div>
-</section>
-
-<section id="contacto" class="py-16 bg-bg-color">
-<div class="container mx-auto px-4">
-    <h2 class="text-3xl font-bold text-center mb-8" data-aos="fade-up">Contacto</h2>
-    <div class="flex flex-col md:flex-row items-start justify-between">
-        <div class="w-full md:w-1/2 mb-8 md:mb-0" data-aos="fade-right">
-            <h3 class="text-2xl font-semibold mb-4">Información de contacto</h3>
-            <ul class="space-y-2">
-                <li><i class="fas fa-phone mr-2"></i> +54 351 763-6461</li>
-                <li><i class="fas fa-envelope mr-2"></i> info@casitasdemontana.com</li>
-                <li><i class="fas fa-map-marker-alt mr-2"></i> Los Hornillos, Traslasierra, Córdoba</li>
-            </ul>
-            <div class="mt-6">
-                <h4 class="text-xl font-semibold mb-2">Síguenos en redes sociales</h4>
-                <div class="flex space-x-4">
-                    <a href="#" class="text-primary hover:text-secondary transition-colors" aria-label="Facebook"><i class="fab fa-facebook-f fa-2x"></i></a>
-                    <a href="#" class="text-primary hover:text-secondary transition-colors" aria-label="Instagram"><i class="fab fa-instagram fa-2x"></i></a>
-                    <a href="#" class="text-primary hover:text-secondary transition-colors" aria-label="Twitter"><i class="fab fa-twitter fa-2x"></i></a>
+                    <div class="swiper-pagination"></div>
                 </div>
             </div>
-        </div>
-        <div class="w-full md:w-1/2" data-aos="fade-left">
-            <form id="contact-form" class="bg-white p-6 rounded-lg shadow-md">
-                <div class="mb-4">
-                    <label for="name" class="block text-sm font-medium mb-1">Nombre</label>
-                    <input type="text" id="name" name="name" required class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:border-primary">
+        </section>
+
+        <section id="galeria" class="py-16 bg-bg-color">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold text-center mb-8" data-aos="fade-up">Galería</h2>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    <div class="gallery-item" data-aos="fade-up">
+                        <img src="https://images.unsplash.com/photo-1601919308630-1a3b7e0c6c1e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Galería 1" class="w-full h-40 object-cover rounded-lg shadow-md">
+                    </div>
+                    <div class="gallery-item" data-aos="fade-up" data-aos-delay="100">
+                        <img src="https://images.unsplash.com/photo-1601918774946-25832a4be0d6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80" alt="Galería 2" class="w-full h-40 object-cover rounded-lg shadow-md">
+                    </div>
+                    <div class="gallery-item" data-aos="fade-up" data-aos-delay="200">
+                        <img src="https://images.unsplash.com/photo-1601919051950-bb9f3ffb3bcd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Galería 3" class="w-full h-40 object-cover rounded-lg shadow-md">
+                    </div>
+                    <div class="gallery-item" data-aos="fade-up" data-aos-delay="300">
+                        <img src="https://images.unsplash.com/photo-1587061949409-02df41d5e562?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Galería 4" class="w-full h-40 object-cover rounded-lg shadow-md">
+                    </div>
                 </div>
-                <div class="mb-4">
-                    <label for="email" class="block text-sm font-medium mb-1">Email</label>
-                    <input type="email" id="email" name="email" required class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:border-primary">
+            </div>
+        </section>
+
+        <section id="ubicacion" class="py-16 bg-white">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold text-center mb-8" data-aos="fade-up">Ubicación</h2>
+                <div class="flex flex-col md:flex-row items-center justify-between">
+                    <div class="w-full md:w-1/2 mb-8 md:mb-0" data-aos="fade-right">
+                        <h3 class="text-2xl font-semibold mb-4">Cómo llegar</h3>
+                        <p class="mb-4">Estamos ubicados en Los Hornillos, Traslasierra, Córdoba. A solo 15 minutos de Mina Clavero y 20 minutos de Nono.</p>
+                        <ul class="list-disc list-inside mb-4">
+                            <li>Desde Córdoba Capital: 3 horas por ruta</li>
+                            <li>Desde Villa Dolores: 45 minutos</li>
+                            <li>Desde Buenos Aires: 10 horas por ruta</li>
+                        </ul>
+                        <a href="https://goo.gl/maps/XXXXXXXX" target="_blank" class="btn btn-primary">Ver en Google Maps</a>
+                    </div>
+                    <div class="w-full md:w-1/2" data-aos="fade-left">
+                        <img src="https://via.placeholder.com/600x400" alt="Mapa de ubicación" class="w-full rounded-lg shadow-md">
+                    </div>
                 </div>
-                <div class="mb-4">
-                    <label for="message" class="block text-sm font-medium mb-1">Mensaje</label>
-                    <textarea id="message" name="message" rows="4" required class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:border-primary"></textarea>
+            </div>
+        </section>
+
+        <section id="contacto" class="py-16 bg-bg-color">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold text-center mb-8" data-aos="fade-up">Contacto</h2>
+                <div class="flex flex-col md:flex-row items-start justify-between">
+                    <div class="w-full md:w-1/2 mb-8 md:mb-0" data-aos="fade-right">
+                        <h3 class="text-2xl font-semibold mb-4">Información de contacto</h3>
+                        <ul class="space-y-2">
+                            <li><i class="fas fa-phone mr-2"></i> +54 351 763-6461</li>
+                            <li><i class="fas fa-envelope mr-2"></i> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="b0d9ded6dff0d3d1c3d9c4d1c3d4d5dddfdec4d1ded19ed3dfdd">[email&#160;protected]</a></li>
+                            <li><i class="fas fa-map-marker-alt mr-2"></i> Los Hornillos, Traslasierra, Córdoba</li>
+                        </ul>
+                        <div class="mt-6">
+                            <h4 class="text-xl font-semibold mb-2">Síguenos en redes sociales</h4>
+                            <div class="flex space-x-4">
+                                <a href="#" class="text-primary hover:text-secondary transition-colors" aria-label="Facebook"><i class="fab fa-facebook-f fa-2x"></i></a>
+                                <a href="#" class="text-primary hover:text-secondary transition-colors" aria-label="Instagram"><i class="fab fa-instagram fa-2x"></i></a>
+                                <a href="#" class="text-primary hover:text-secondary transition-colors" aria-label="Twitter"><i class="fab fa-twitter fa-2x"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-full md:w-1/2" data-aos="fade-left">
+                        <form id="contact-form" class="bg-white p-6 rounded-lg shadow-md">
+                            <div class="mb-4">
+                                <label for="name" class="block text-sm font-medium mb-1">Nombre</label>
+                                <input type="text" id="name" name="name" required class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:border-primary">
+                            </div>
+                            <div class="mb-4">
+                                <label for="email" class="block text-sm font-medium mb-1">Email</label>
+                                <input type="email" id="email" name="email" required class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:border-primary">
+                            </div>
+                            <div class="mb-4">
+                                <label for="message" class="block text-sm font-medium mb-1">Mensaje</label>
+                                <textarea id="message" name="message" rows="4" required class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:border-primary"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-full">Enviar mensaje</button>
+                        </form>
+                    </div>
                 </div>
-                <button type="submit" class="btn btn-primary w-full">Enviar mensaje</button>
-            </form>
-        </div>
-    </div>
-</div>
-</section>
-</main>
+            </div>
+        </section>
+    </main>
 
-<footer class="bg-gray-800 text-white py-12">
-<div class="container mx-auto px-4">
-<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-    <div>
-        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot_20241123-214058-3vpecx4b30fJRZnqVitngmksFmQInc.png" alt="Casitas de Montaña Logo" class="h-12 w-auto mb-4">
-        <h3 class="text-xl font-bold mb-4">Casitas de Montaña</h3>
-        <p class="mb-4">Tu hogar lejos de casa en Los Hornillos, Traslasierra. Disfruta de la naturaleza y el confort en nuestras cabañas.</p>
-        <div class="space-y-2">
-            <p><i class="fas fa-phone mr-2"></i> +54 351 763-6461</p>
-            <p><i class="fas fa-envelope mr-2"></i> <a href="mailto:info@casitasdemontana.com">info@casitasdemontana.com</a></p>
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot_20241123-214058-3vpecx4b30fJRZnqVitngmksFmQInc.png" alt="Casitas de Montaña Logo" class="h-12 w-auto mb-4">
+                    <h3 class="text-xl font-bold mb-4">Casitas de Montaña</h3>
+                    <p class="mb-4">Tu hogar lejos de casa en Los Hornillos, Traslasierra. Disfruta de la naturaleza y el confort en nuestras cabañas.</p>
+                    <div class="space-y-2">
+                        <p><i class="fas fa-phone mr-2"></i> +54 351 763-6461</p>
+                        <p><i class="fas fa-envelope mr-2"></i> <a href="/cdn-cgi/l/email-protection#71181f171e311210021805100215141c1e1f05101f105f121e1c"><span class="__cf_email__" data-cfemail="761f181019361517051f02170512131b1918021718175815191b">[email&#160;protected]</span></a></p>
+                    </div>
+                    <div class="mt-4 space-x-4">
+                        <a href="#" class="text-white hover:text-accent transition-colors" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white hover:text-accent transition-colors" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white hover:text-accent transition-colors" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Enlaces Rápidos</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#inicio" class="hover:text-accent transition-colors">Inicio</a></li>
+                        <li><a href="#cabanas" class="hover:text-accent transition-colors">Cabañas</a></li>
+                        <li><a href="#servicios" class="hover:text-accent transition-colors">Servicios</a></li>
+                        <li><a href="#galeria" class="hover:text-accent transition-colors">Galería</a></li>
+                        <li><a href="#ubicacion" class="hover:text-accent transition-colors">Ubicación</a></li>
+                        <li><a href="#contacto" class="hover:text-accent transition-colors">Contacto</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Horarios de Atención</h3>
+                    <ul class="space-y-2">
+                        <li>Lunes a Viernes: 9:00 - 20:00</li>
+                        <li>Sábados: 10:00 - 18:00</li>
+                        <li>Domingos: 10:00 - 15:00</li>
+                    </ul>
+                    <div class="mt-6">
+                        <h4 class="font-semibold mb-2">Check-in / Check-out</h4>
+                        <p>Check-in: 14:00</p>
+                        <p>Check-out: 10:00</p>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-gray-700 text-center">
+                <p>&copy; 2023 Casitas de Montaña. Todos los derechos reservados.</p>
+            </div>
         </div>
-        <div class="mt-4 space-x-4">
-            <a href="#" class="text-white hover:text-accent transition-colors" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" class="text-white hover:text-accent transition-colors" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="#" class="text-white hover:text-accent transition-colors" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-        </div>
-    </div>
-    <div>
-        <h3 class="text-xl font-bold mb-4">Enlaces Rápidos</h3>
-        <ul class="space-y-2">
-            <li><a href="#inicio" class="hover:text-accent transition-colors">Inicio</a></li>
-            <li><a href="#cabanas" class="hover:text-accent transition-colors">Cabañas</a></li>
-            <li><a href="#servicios" class="hover:text-accent transition-colors">Servicios</a></li>
-            <li><a href="#galeria" class="hover:text-accent transition-colors">Galería</a></li>
-            <li><a href="#ubicacion" class="hover:text-accent transition-colors">Ubicación</a></li>
-            <li><a href="#contacto" class="hover:text-accent transition-colors">Contacto</a></li>
-        </ul>
-    </div>
-    <div>
-        <h3 class="text-xl font-bold mb-4">Horarios de Atención</h3>
-        <ul class="space-y-2">
-            <li>Lunes a Viernes: 9:00 - 20:00</li>
-            <li>Sábados: 10:00 - 18:00</li>
-            <li>Domingos: 10:00 - 15:00</li>
-        </ul>
-        <div class="mt-6">
-            <h4 class="font-semibold mb-2">Check-in / Check-out</h4>
-            <p>Check-in: 14:00</p>
-            <p>Check-out: 10:00</p>
-        </div>
-    </div>
-</div>
-<div class="mt-8 pt-8 border-t border-gray-700 text-center">
-    <p>&copy; 2023 Casitas de Montaña. Todos los derechos reservados.</p>
-</div>
-</div>
-</footer>
+    </footer>
 
-<!-- WhatsApp Floating Button -->
-<a href="https://wa.me/543517636461" class="fixed bottom-4 right-4 bg-green-500 text-white rounded-full w-14 h-14 flex items-center justify-center text-2xl shadow-lg hover:bg-green-600 transition-colors" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
-<i class="fab fa-whatsapp"></i>
-</a>
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/543517636461" class="fixed bottom-4 right-4 bg-green-500 text-white rounded-full w-14 h-14 flex items-center justify-center text-2xl shadow-lg hover:bg-green-600 transition-colors whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
-<!-- Cabin Modals -->
-<div id="modal-casita-boutique" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center hidden">
-<div class="bg-white rounded-lg p-8 max-w-3xl w-full mx-4">
-    <h3 class="text-2xl font-bold mb-4">Casita Boutique</h3>
-    <div class="swiper-container mb-4">
-        <div class="swiper-wrapper">
-            <div class="swiper-slide"><img src="https://via.placeholder.com/600x400" alt="Casita Boutique 1" class="w-full h-64 object-cover rounded-lg"></div>
-            <div class="swiper-slide"><img src="https://via.placeholder.com/600x400" alt="Casita Boutique 2" class="w-full h-64 object-cover rounded-lg"></div>
-            <div class="swiper-slide"><img src="https://via.placeholder.com/600x400" alt="Casita Boutique 3" class="w-full h-64 object-cover rounded-lg"></div>
-        </div>
-        <div class="swiper-pagination"></div>
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
-    </div>
-    <p class="mb-4">Perfecta para parejas, esta cabaña ofrece una experiencia íntima en medio de la naturaleza. Disfruta de vistas panorámicas y todas las comodidades para una estancia inolvidable.</p>
-    <ul class="mb-4">
-        <li><i class="fas fa-user mr-2"></i> 2 personas</li>
-        <li><i class="fas fa-bed mr-2"></i> 1 cama king size</li>
-        <li><i class="fas fa-bath mr-2"></i> Baño privado con hidromasaje</li>
-        <li><i class="fas fa-tv mr-2"></i> Smart TV</li>
-        <li><i class="fas fa-wifi mr-2"></i> Wi-Fi de alta velocidad</li>
-    </ul>
-    <button class="btn btn-primary mr-2">Reservar ahora</button>
-    <button class="btn btn-secondary modal-close">Cerrar</button>
-</div>
-</div>
-
-<div id="modal-casita-montana" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center hidden">
-<div class="bg-white rounded-lg p-8 max-w-3xl w-full mx-4">
-    <h3 class="text-2xl font-bold mb-4">Casita Montaña</h3>
-    <div class="swiper-container mb-4">
-        <div class="swiper-wrapper">
-            <div class="swiper-slide"><img src="https://via.placeholder.com/600x400" alt="Casita Montaña 1" class="w-full h-64 object-cover rounded-lg"></div>
-            <div class="swiper-slide"><img src="https://via.placeholder.com/600x400" alt="Casita Montaña 2" class="w-full h-64 object-cover rounded-lg"></div>
-            <div class="swiper-slide"><img src="https://via.placeholder.com/600x400" alt="Casita Montaña 3" class="w-full h-64 object-cover rounded-lg"></div>
-        </div>
-        <div class="swiper-pagination"></div>
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
-    </div>
-    <p class="mb-4">Con vistas panorámicas a las sierras, esta cabaña es ideal para los amantes de la naturaleza. Espaciosa y cómoda, perfecta para familias o grupos de amigos.</p>
-    <ul class="mb-4">
-        <li><i class="fas fa-user mr-2"></i> 4 personas</li>
-        <li><i class="fas fa-bed mr-2"></i> 2 habitaciones (1 cama queen, 2 camas individuales)</li>
-        <li><i class="fas fa-bath mr-2"></i> 2 baños completos</li>
-        <li><i class="fas fa-tv mr-2"></i> Smart TV</li>
-        <li><i class="fas fa-wifi mr-2"></i> Wi-Fi de alta velocidad</li>
-        <li><i class="fas fa-utensils mr-2"></i> Cocina equipada</li>
-    </ul>
-    <button class="btn btn-primary mr-2">Reservar ahora</button>
-    <button class="btn btn-secondary modal-close">Cerrar</button>
-</div>
-</div>
-
-<div id="modal-casita-sierra" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center hidden">
-<div class="bg-white rounded-lg p-8 max-w-3xl w-full mx-4">
-    <h3 class="text-2xl font-bold mb-4">Casita Sierra</h3>
-    <div class="swiper-container mb-4">
-        <div class="swiper-wrapper">
-            <div class="swiper-slide"><img src="https://via.placeholder.com/600x400" alt="Casita Sierra 1" class="w-full h-64 object-cover rounded-lg"></div>
-            <div class="swiper-slide"><img src="https://via.placeholder.com/600x400" alt="Casita Sierra 2" class="w-full h-64 object-cover rounded-lg"></div>
-            <div class="swiper-slide"><img src="https://via.placeholder.com/600x400" alt="Casita Sierra 3" class="w-full h-64 object-cover rounded-lg"></div>
-        </div>
-        <div class="swiper-pagination"></div>
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
-    </div>
-    <p class="mb-4">Espaciosa y cómoda, perfecta para familias o grupos de amigos que buscan tranquilidad. Disfruta de amplios espacios y todas las comodidades para una estancia memorable.</p>
-    <ul class="mb-4">
-        <li><i class="fas fa-user mr-2"></i> 6 personas</li>
-        <li><i class="fas fa-bed mr-2"></i> 3 habitaciones (1 cama king, 1 cama queen, 2 camas individuales)</li>
-        <li><i class="fas fa-bath mr-2"></i> 2 baños completos</li>
-        <li><i class="fas fa-tv mr-2"></i> Smart TV</li>
-        <li><i class="fas fa-wifi mr-2"></i> Wi-Fi de alta velocidad</li>
-        <li><i class="fas fa-utensils mr-2"></i> Cocina completa</li>
-        <li><i class="fas fa-hot-tub mr-2"></i> Jacuzzi exterior</li>
-    </ul>
-    <button class="btn btn-primary mr-2">Reservar ahora</button>
-    <button class="btn btn-secondary modal-close">Cerrar</button>
-</div>
-</div>
-
-<div id="modal-casita-campo" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center hidden">
-<div class="bg-white rounded-lg p-8 max-w-3xl w-full mx-4">
-    <h3 class="text-2xl font-bold mb-4">Casita Campo</h3>
-    <div class="swiper-container mb-4">
-        <div class="swiper-wrapper">
-            <div class="swiper-slide"><img src="https://via.placeholder.com/600x400" alt="Casita Campo 1" class="w-full h-64 object-cover rounded-lg"></div>
-            <div class="swiper-slide"><img src="https://via.placeholder.com/600x400" alt="Casita Campo 2" class="w-full h-64 object-cover rounded-lg"></div>
-            <div class="swiper-slide"><img src="https://via.placeholder.com/600x400" alt="Casita Campo 3" class="w-full h-64 object-cover rounded-lg"></div>
-        </div>
-        <div class="swiper-pagination"></div>
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
-    </div>
-    <p class="mb-4">Rodeada de naturaleza, esta cabaña ofrece una experiencia rústica y acogedora. Ideal para quienes buscan una conexión más cercana con el entorno natural.</p>
-    <ul class="mb-4">
-        <li><i class="fas fa-user mr-2"></i> 4 personas</li>
-        <li><i class="fas fa-bed mr-2"></i> 2 habitaciones (1 cama queen, 2 camas individuales)</li>
-        <li><i class="fas fa-bath mr-2"></i> 1 baño completo</li>
-        <li><i class="fas fa-tv mr-2"></i> Smart TV</li>
-        <li><i class="fas fa-wifi mr-2"></i> Wi-Fi de alta velocidad</li>
-        <li><i class="fas fa-utensils mr-2"></i> Cocina rústica equipada</li>
-        <li><i class="fas fa-campground mr-2"></i> Área de fogata</li>
-    </ul>
-    <button class="btn btn-primary mr-2">Reservar ahora</button>
-    <button class="btn btn-secondary modal-close">Cerrar</button>
-</div>
-</div>
-
-<!-- AOS Script -->
-<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-<!-- Swiper JS -->
-<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-<!-- Custom JS -->
-<script src="script.js"></script>
+    <!-- AOS Script -->
+    <script data-cfasync="false" src="/cdn-c
+gi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="script.js"></script>
 </body>
 </html>
