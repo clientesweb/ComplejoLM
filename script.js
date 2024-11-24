@@ -3,26 +3,24 @@ document.addEventListener('DOMContentLoaded', function() {
     AOS.init();
 
     // Mobile Menu Toggle
-    const hamburger = document.querySelector("button[aria-label='Menú']");
-    const navMenu = document.querySelector("ul");
+    const hamburger = document.querySelector(".hamburger");
+    const navMenu = document.querySelector(".nav-menu");
 
     hamburger.addEventListener("click", mobileMenu);
 
     function mobileMenu() {
         hamburger.classList.toggle("active");
-        navMenu.classList.toggle("hidden");
-        navMenu.classList.toggle("flex");
+        navMenu.classList.toggle("active");
     }
 
     // Close mobile menu when clicking on a nav link
     const navLinks = document.querySelectorAll(".nav-link");
 
-    navLinks.forEach(link => link.addEventListener("click", closeMenu));
+    navLinks.forEach(n => n.addEventListener("click", closeMenu));
 
     function closeMenu() {
         hamburger.classList.remove("active");
-        navMenu.classList.add("hidden");
-        navMenu.classList.remove("flex");
+        navMenu.classList.remove("active");
     }
 
     // Hero Swiper
@@ -45,8 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
     whatsappButtons.forEach(button => {
         button.addEventListener('click', function(e) {
             e.preventDefault();
-            
-const cabin = this.getAttribute('data-cabin');
+            const cabin = this.getAttribute('data-cabin');
             const message = encodeURIComponent(`Hola, estoy interesado en reservar la ${cabin}. ¿Podrían darme más información?`);
             window.open(`https://wa.me/5492604445678?text=${message}`, '_blank');
         });
