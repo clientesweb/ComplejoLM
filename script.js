@@ -1,6 +1,11 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize AOS
-    AOS.init();
+    AOS.init({
+        duration: 800,
+        easing: 'ease-in-out',
+        once: true,
+        mirror: false
+    });
 
     // Mobile Menu Toggle
     const hamburger = document.querySelector(".hamburger");
@@ -10,16 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function mobileMenu() {
         hamburger.classList.toggle("active");
-        navMenu.classList.toggle("hidden");
-        navMenu.classList.toggle("flex");
-        navMenu.classList.toggle("flex-col");
-        navMenu.classList.toggle("absolute");
-        navMenu.classList.toggle("top-16");
-        navMenu.classList.toggle("left-0");
-        navMenu.classList.toggle("w-full");
-        navMenu.classList.toggle("bg-white");
-        navMenu.classList.toggle("shadow-md");
-        navMenu.classList.toggle("py-4");
+        navMenu.classList.toggle("active");
     }
 
     // Close mobile menu when clicking on a nav link
@@ -29,8 +25,73 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function closeMenu() {
         hamburger.classList.remove("active");
-        navMenu.classList.add("hidden");
-        navMenu.classList.remove("flex", "flex-col", "absolute", "top-16", "left-0", "w-full", "bg-white", "shadow-md", "py-4");
+        navMenu.classList.remove("active");
+    }
+
+    // Hero Swiper
+    new Swiper('.mySwiper', {
+        spaceBetween: 30,
+        effect: 'fade',
+        loop: true,
+        autoplay: {
+            delay: 3500,
+            disableOnInteraction: false,
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+    });
+
+    // Reviews Swiper
+    new Swiper('.reviewsSwiper', {
+        slidesPerView: 1,
+        spaceBetween: 30,
+        loop: true,
+        autoplay: {
+            delay: 5000,
+            disableOnInteraction: false,
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        breakpoints: {
+            640: {
+                slidesPerView: 2,
+            },
+            1024: {
+                slidesPerView: 3,
+            },
+        },
+    });
+
+    // Cabin Modal Functionality
+    function openModal(modal) {
+        if (modal == null) return;
+        modal.classList.remove('hidden');
+        initModalSwiper(modal);
+    }
+
+    function closeModal(modal) {
+        if (modal == null) return;
+        modal.classList.add('hidden');
+    }
+
+    function initModalSwiper(modal) {
+        new Swiper(modal.querySelector('.swiper-container'), {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            loop: true,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
     }
 
     // Top Banner Swiper
@@ -75,6 +136,30 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // Gallery image modal
+    const galleryItems = document.querySelectorAll('.gallery-item img');
+    const body = document.body;
+
+    galleryItems.forEach(item => {
+        item.addEventListener('click', () => {
+            const modal = document.createElement('div');
+            modal.classList.add('fixed', 'inset-0', 'bg-black', 'bg-opacity-75', 'flex', 'items-center', 'justify-center', 'z-50');
+            modal.innerHTML = `
+                <div class="relative">
+                    <img src="${item.src}" alt="${item.alt}" class="max-w-full max-h-90vh">
+                    <button class="absolute top-4 right-4 text-white text-2xl">&times;</button>
+                </div>
+            `;
+            body.appendChild(modal);
+            body.style.overflow = 'hidden';
+
+            modal.querySelector('button').addEventListener('click', () => {
+                body.removeChild(modal);
+                body.style.overflow = '';
+            });
+        });
+    });
+
     // Load cabins dynamically
     function cargarCabanas() {
         fetch('cabanas.json')
@@ -94,85 +179,110 @@ document.addEventListener('DOMContentLoaded', function() {
                                     <li><i class="fas fa-user mr-2"></i> ${cabana.capacidad} personas</li>
                                     <li><i class="fas fa-dollar-sign mr-2"></i> $${cabana.precio} por noche</li>
                                 </ul>
-                                <button class="btn btn-secondary block w-full text-white bg-secondary hover:bg-primary transition-colors">Reservar</button>
+                                <button class="btn btn-secondary block w-full text-center" data-modal-target="#modal-${cabana.id}">Ver más</button>
                             </div>
                         </div>
                     `;
                     cabanasContainer.innerHTML += cabanaHTML;
                 });
-            })
-            .catch(error => console.error('Error:', error));
+
+                crearModales(data.cabanas);
+                inicializarModales();
+            });
     }
 
+    function crearModales(cabanas) {
+        const body = document.body;
+        cabanas.forEach(cabana => {
+            const modal = document.createElement('div');
+            modal.id = `modal-${cabana.id}`;
+            modal.className = 'fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center hidden';
+            modal.innerHTML = `
+                <div class="bg-white rounded-lg p-8 max-w-3xl w-full mx-4">
+                    <h3 class="text-2xl font-bold mb-4">${cabana.nombre}</h3>
+                    <div class="swiper-container mb-4">
+                        <div class="swiper-wrapper">
+                            ${cabana.imagenes.map(img => `<div class="swiper-slide"><img src="${img}" alt="${cabana.nombre}" class="w-full h-64 object-cover rounded-lg"></div>`).join('')}
+                        </div>
+                        <div class="swiper-pagination"></div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                    </div>
+                    <p class="mb-4">${cabana.descripcion}</p>
+                    <ul class="mb-4">
+                        ${cabana.detalles.map(detalle => `<li><i class="fas fa-check mr-2"></i>${detalle}</li>`).join('')}
+                    </ul>
+                    <button class="btn btn-primary mr-2">Reservar ahora</button>
+                    <button class="btn btn-secondary modal-close">Cerrar</button>
+                </div>
+            `;
+            body.appendChild(modal);
+        });
+    }
+
+    function inicializarModales() {
+        const modalButtons = document.querySelectorAll('[data-modal-target]');
+        const modalCloseButtons = document.querySelectorAll('.modal-close');
+
+        modalButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const modal = document.querySelector(button.dataset.modalTarget);
+                openModal(modal);
+            });
+        });
+
+        modalCloseButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const modal = button.closest('.fixed');
+                closeModal(modal);
+            });
+        });
+    }
+
+    // Load cabins when the DOM is ready
     cargarCabanas();
 
-    // Gallery filter functionality
-    const galleryFilters = document.querySelectorAll('.gallery-filter');
-    const galleryItems = document.querySelectorAll('.gallery-item');
+    // Función para manejar el redimensionamiento
+    function handleResize() {
+        // Aquí puedes agregar lógica adicional si es necesario
+        console.log('Ventana redimensionada');
+    }
 
-    galleryFilters.forEach(filter => {
-        filter.addEventListener('click', function() {
-            const category = this.getAttribute('data-filter');
-            
-            galleryFilters.forEach(f => f.classList.remove('active', 'bg-primary', 'text-white'));
-            this.classList.add('active', 'bg-primary', 'text-white');
-            
+    // Agregar evento de redimensionamiento
+    window.addEventListener('resize', handleResize);
+
+    // Llamar a la función una vez al cargar la página
+    handleResize();
+
+    // Galería con filtro
+    const galleryContainer = document.getElementById('gallery-container');
+    const galleryFilter = document.getElementById('gallery-filter');
+
+    if (galleryFilter && galleryContainer) {
+        galleryFilter.addEventListener('change', function() {
+            const selectedZone = this.value;
+            const galleryItems = galleryContainer.querySelectorAll('.gallery-item');
+
             galleryItems.forEach(item => {
-                if (category === 'all' || item.getAttribute('data-category') === category) {
+                if (selectedZone === 'all' || item.dataset.zone === selectedZone) {
                     item.style.display = 'block';
                 } else {
                     item.style.display = 'none';
                 }
             });
         });
-    });
-
-    // Image viewer functionality
-    const galleryImages = document.querySelectorAll('.gallery-item img');
-    let currentImageIndex = 0;
-
-    function createImageViewer() {
-        const viewer = document.createElement('div');
-        viewer.className = 'fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50';
-        viewer.innerHTML = `
-            <button class="absolute top-4 right-4 text-white text-4xl" id="close-viewer">&times;</button>
-            <button class="absolute left-4 top-1/2 transform -translate-y-1/2 text-white text-4xl" id="prev-image">&lt;</button>
-            <img src="" alt="Imagen ampliada" class="max-h-90vh max-w-90vw object-contain">
-            <button class="absolute right-4 top-1/2 transform -translate-y-1/2 text-white text-4xl" id="next-image">&gt;</button>
-        `;
-        document.body.appendChild(viewer);
-
-        const closeBtn = viewer.querySelector('#close-viewer');
-        const prevBtn = viewer.querySelector('#prev-image');
-        const nextBtn = viewer.querySelector('#next-image');
-        const viewerImage = viewer.querySelector('img');
-
-        closeBtn.addEventListener('click', () => viewer.remove());
-        prevBtn.addEventListener('click', showPreviousImage);
-        nextBtn.addEventListener('click', showNextImage);
-
-        function showImage(index) {
-            viewerImage.src = galleryImages[index].src;
-            currentImageIndex = index;
-        }
-
-        function showPreviousImage() {
-            currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
-            showImage(currentImageIndex);
-        }
-
-        function showNextImage() {
-            currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
-            showImage(currentImageIndex);
-        }
-
-        return showImage;
     }
 
-    const showImageInViewer = createImageViewer();
-
-    galleryImages.forEach((img, index) => {
-        img.addEventListener('click', () => showImageInViewer(index));
-    });
+    // WhatsApp button animation
+    const whatsappButton = document.querySelector('.whatsapp-float');
+    if (whatsappButton) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                whatsappButton.style.animation = 'bounce 0.5s';
+                setTimeout(() => {
+                    whatsappButton.style.animation = '';
+                }, 500);
+            }
+        });
+    }
 });
-
