@@ -1,31 +1,27 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize AOS
-    AOS.init({
-        duration: 800,
-        easing: 'ease-in-out',
-        once: true,
-        mirror: false
-    });
+    AOS.init();
 
     // Mobile Menu Toggle
     const hamburger = document.querySelector(".hamburger");
     const navMenu = document.querySelector(".nav-menu");
 
-    hamburger.addEventListener("click", mobileMenu);
+    if (hamburger && navMenu) {
+        hamburger.addEventListener("click", function() {
+            hamburger.classList.toggle("active");
+            navMenu.classList.toggle("active");
+            navMenu.classList.toggle("hidden");
+            navMenu.classList.toggle("flex");
+        });
 
-    function mobileMenu() {
-        hamburger.classList.toggle("active");
-        navMenu.classList.toggle("active");
-    }
-
-    // Close mobile menu when clicking on a nav link
-    const navLinks = document.querySelectorAll(".nav-link");
-
-    navLinks.forEach(n => n.addEventListener("click", closeMenu));
-
-    function closeMenu() {
-        hamburger.classList.remove("active");
-        navMenu.classList.remove("active");
+        // Close mobile menu when clicking on a nav link
+        const navLinks = document.querySelectorAll(".nav-link");
+        navLinks.forEach(n => n.addEventListener("click", function() {
+            hamburger.classList.remove("active");
+            navMenu.classList.remove("active");
+            navMenu.classList.add("hidden");
+            navMenu.classList.remove("flex");
+        }));
     }
 
     // Hero Swiper
@@ -239,24 +235,11 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Load cabins when the DOM is ready
     cargarCabanas();
 
-    // Función para manejar el redimensionamiento
-    function handleResize() {
-        // Aquí puedes agregar lógica adicional si es necesario
-        console.log('Ventana redimensionada');
-    }
-
-    // Agregar evento de redimensionamiento
-    window.addEventListener('resize', handleResize);
-
-    // Llamar a la función una vez al cargar la página
-    handleResize();
-
-    // Galería con filtro
-    const galleryContainer = document.getElementById('gallery-container');
+    // Gallery filter functionality
     const galleryFilter = document.getElementById('gallery-filter');
+    const galleryContainer = document.getElementById('gallery-container');
 
     if (galleryFilter && galleryContainer) {
         galleryFilter.addEventListener('change', function() {
@@ -273,16 +256,19 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // WhatsApp button animation
-    const whatsappButton = document.querySelector('.whatsapp-float');
-    if (whatsappButton) {
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 100) {
-                whatsappButton.style.animation = 'bounce 0.5s';
-                setTimeout(() => {
-                    whatsappButton.style.animation = '';
-                }, 500);
-            }
-        });
-    }
+    // Dynamically add filter options
+    const zones = ['villa-del-dique', 'villa-rumipal', 'el-torreon'];
+    zones.forEach(zone => {
+        const option = document.createElement('option');
+        option.value = zone;
+        option.textContent = zone.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+        galleryFilter.appendChild(option);
+    });
+
+    // Add data-zone attribute to gallery items
+    const galleryItems = galleryContainer.querySelectorAll('.gallery-item');
+    galleryItems.forEach(item => {
+        const randomZone = zones[Math.floor(Math.random() * zones.length)];
+        item.dataset.zone = randomZone;
+    });
 });
