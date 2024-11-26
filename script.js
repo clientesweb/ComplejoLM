@@ -23,72 +23,6 @@ document.addEventListener('DOMContentLoaded', function() {
         navMenu.classList.remove("active");
     }
 
-    // Hero Swiper
-    new Swiper('.mySwiper', {
-        spaceBetween: 30,
-        effect: 'fade',
-        loop: true,
-        autoplay: {
-            delay: 3500,
-            disableOnInteraction: false,
-        },
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
-    });
-
-    // Reviews Swiper
-    new Swiper('.reviewsSwiper', {
-        slidesPerView: 1,
-        spaceBetween: 30,
-        loop: true,
-        autoplay: {
-            delay: 5000,
-            disableOnInteraction: false,
-        },
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
-        breakpoints: {
-            640: {
-                slidesPerView: 2,
-            },
-            1024: {
-                slidesPerView: 3,
-            },
-        },
-    });
-
-    // Cabin Modal Functionality
-    function openModal(modal) {
-        if (modal == null) return;
-        modal.classList.remove('hidden');
-        initModalSwiper(modal);
-    }
-
-    function closeModal(modal) {
-        if (modal == null) return;
-        modal.classList.add('hidden');
-    }
-
-    function initModalSwiper(modal) {
-        new Swiper(modal.querySelector('.swiper-container'), {
-            slidesPerView: 1,
-            spaceBetween: 30,
-            loop: true,
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
-        });
-    }
-
     // Top Banner Swiper
     new Swiper('.top-banner-swiper', {
         direction: 'horizontal',
@@ -131,121 +65,87 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Gallery image modal
-    const galleryItems = document.querySelectorAll('.gallery-item img');
-    const body = document.body;
+    // Load rentals dynamically
+    function cargarAlquileres() {
+        // This would typically be an API call. For this example, we'll use a static array.
+        const alquileres = [
+            { id: 1, nombre: "Casa en Villa del Dique", imagen: "https://via.placeholder.com/300x200", descripcion: "Hermosa casa con vista al lago", capacidad: 6, precio: 5000 },
+            { id: 2, nombre: "Cabaña en Villa Rumipal", imagen: "https://via.placeholder.com/300x200", descripcion: "Acogedora cabaña en el bosque", capacidad: 4, precio: 4000 },
+            { id: 3, nombre: "Departamento en El Torreón", imagen: "https://via.placeholder.com/300x200", descripcion: "Moderno departamento con todas las comodidades", capacidad: 3, precio: 3500 },
+        ];
 
-    galleryItems.forEach(item => {
-        item.addEventListener('click', () => {
-            const modal = document.createElement('div');
-            modal.classList.add('fixed', 'inset-0', 'bg-black', 'bg-opacity-75', 'flex', 'items-center', 'justify-center', 'z-50');
-            modal.innerHTML = `
-                <div class="relative">
-                    <img src="${item.src}" alt="${item.alt}" class="max-w-full max-h-90vh">
-                    <button class="absolute top-4 right-4 text-white text-2xl">&times;</button>
+        const alquileresContainer = document.querySelector('#alquileres .grid');
+        alquileresContainer.innerHTML = '';
+
+        alquileres.forEach(alquiler => {
+            const alquilerHTML = `
+                <div class="alquiler-card bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:scale-105" data-aos="fade-up">
+                    <img src="${alquiler.imagen}" alt="${alquiler.nombre}" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-xl font-bold mb-2">${alquiler.nombre}</h3>
+                        <p class="mb-4">${alquiler.descripcion}</p>
+                        <ul class="mb-4">
+                            <li><i class="fas fa-user mr-2"></i> ${alquiler.capacidad} personas</li>
+                            <li><i class="fas fa-dollar-sign mr-2"></i> $${alquiler.precio} por noche</li>
+                        </ul>
+                        <button class="btn btn-secondary block w-full text-center" onclick="mostrarDetalles(${alquiler.id})">Ver más</button>
+                    </div>
                 </div>
             `;
-            body.appendChild(modal);
-            body.style.overflow = 'hidden';
-
-            modal.querySelector('button').addEventListener('click', () => {
-                body.removeChild(modal);
-                body.style.overflow = '';
-            });
+            alquileresContainer.innerHTML += alquilerHTML;
         });
+    }
+
+    // Gallery filter functionality
+    const galleryFilter = document.getElementById('gallery-filter');
+    const galleryContainer = document.getElementById('gallery-container');
+
+    // This would typically be loaded from a database or API
+    const galleryItems = [
+        { src: 'https://via.placeholder.com/300x200', alt: 'Villa del Dique', zone: 'villa-del-dique' },
+        { src: 'https://via.placeholder.com/300x200', alt: 'Villa Rumipal', zone: 'villa-rumipal' },
+        { src: 'https://via.placeholder.com/300x200', alt: 'El Torreón', zone: 'el-torreon' },
+        // Add more items as needed
+    ];
+
+    function loadGallery(filter = 'all') {
+        galleryContainer.innerHTML = '';
+        galleryItems.forEach(item => {
+            if (filter === 'all' || item.zone === filter) {
+                const img = document.createElement('img');
+                img.src = item.src;
+                img.alt = item.alt;
+                img.className = 'w-full h-40 object-cover rounded-lg shadow-md gallery-item';
+                img.dataset.aos = 'fade-up';
+                galleryContainer.appendChild(img);
+            }
+        });
+    }
+
+    galleryFilter.addEventListener('change', (e) => {
+        loadGallery(e.target.value);
     });
 
-    // Load cabins dynamically
-    function cargarCabanas() {
-        fetch('cabanas.json')
-            .then(response => response.json())
-            .then(data => {
-                const cabanasContainer = document.querySelector('#cabanas .grid');
-                cabanasContainer.innerHTML = '';
+    // Load rentals and gallery when the DOM is ready
+    cargarAlquileres();
+    loadGallery();
 
-                data.cabanas.forEach(cabana => {
-                    const cabanaHTML = `
-                        <div class="cabana-card bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:scale-105" data-aos="fade-up">
-                            <img src="${cabana.imagen}" alt="${cabana.nombre}" class="w-full h-48 object-cover">
-                            <div class="p-4">
-                                <h3 class="text-xl font-bold mb-2">${cabana.nombre}</h3>
-                                <p class="mb-4">${cabana.descripcion}</p>
-                                <ul class="mb-4">
-                                    <li><i class="fas fa-user mr-2"></i> ${cabana.capacidad} personas</li>
-                                    <li><i class="fas fa-dollar-sign mr-2"></i> $${cabana.precio} por noche</li>
-                                </ul>
-                                <button class="btn btn-secondary block w-full text-center" data-modal-target="#modal-${cabana.id}">Ver más</button>
-                            </div>
-                        </div>
-                    `;
-                    cabanasContainer.innerHTML += cabanaHTML;
-                });
-
-                crearModales(data.cabanas);
-                inicializarModales();
-            });
-    }
-
-    function crearModales(cabanas) {
-        const body = document.body;
-        cabanas.forEach(cabana => {
-            const modal = document.createElement('div');
-            modal.id = `modal-${cabana.id}`;
-            modal.className = 'fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center hidden';
-            modal.innerHTML = `
-                <div class="bg-white rounded-lg p-8 max-w-3xl w-full mx-4">
-                    <h3 class="text-2xl font-bold mb-4">${cabana.nombre}</h3>
-                    <div class="swiper-container mb-4">
-                        <div class="swiper-wrapper">
-                            ${cabana.imagenes.map(img => `<div class="swiper-slide"><img src="${img}" alt="${cabana.nombre}" class="w-full h-64 object-cover rounded-lg"></div>`).join('')}
-                        </div>
-                        <div class="swiper-pagination"></div>
-                        <div class="swiper-button-next"></div>
-                        <div class="swiper-button-prev"></div>
-                    </div>
-                    <p class="mb-4">${cabana.descripcion}</p>
-                    <ul class="mb-4">
-                        ${cabana.detalles.map(detalle => `<li><i class="fas fa-check mr-2"></i>${detalle}</li>`).join('')}
-                    </ul>
-                    <button class="btn btn-primary mr-2">Reservar ahora</button>
-                    <button class="btn btn-secondary modal-close">Cerrar</button>
-                </div>
-            `;
-            body.appendChild(modal);
-        });
-    }
-
-    function inicializarModales() {
-        const modalButtons = document.querySelectorAll('[data-modal-target]');
-        const modalCloseButtons = document.querySelectorAll('.modal-close');
-
-        modalButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                const modal = document.querySelector(button.dataset.modalTarget);
-                openModal(modal);
-            });
-        });
-
-        modalCloseButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                const modal = button.closest('.fixed');
-                closeModal(modal);
-            });
-        });
-    }
-
-    // Load cabins when the DOM is ready
-    cargarCabanas();
-
-    // Función para manejar el redimensionamiento
+    // Function to handle resizing
     function handleResize() {
-        // Aquí puedes agregar lógica adicional si es necesario
-        console.log('Ventana redimensionada');
+        // Add any necessary logic for responsive design
+        console.log('Window resized');
     }
 
-    // Agregar evento de redimensionamiento
+    // Add resize event listener
     window.addEventListener('resize', handleResize);
 
-    // Llamar a la función una vez al cargar la página
+    // Call the function once on page load
     handleResize();
 });
+
+function mostrarDetalles(id) {
+    // This function would typically fetch more details about the rental and display them
+    // For this example, we'll just show an alert
+    alert(`Mostrando detalles del alquiler ${id}`);
+}
+
