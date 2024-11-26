@@ -10,7 +10,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function mobileMenu() {
         hamburger.classList.toggle("active");
-        navMenu.classList.toggle("active");
+        navMenu.classList.toggle("hidden");
+        navMenu.classList.toggle("flex");
+        navMenu.classList.toggle("flex-col");
+        navMenu.classList.toggle("absolute");
+        navMenu.classList.toggle("top-16");
+        navMenu.classList.toggle("left-0");
+        navMenu.classList.toggle("w-full");
+        navMenu.classList.toggle("bg-white");
+        navMenu.classList.toggle("shadow-md");
+        navMenu.classList.toggle("py-4");
     }
 
     // Close mobile menu when clicking on a nav link
@@ -20,7 +29,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function closeMenu() {
         hamburger.classList.remove("active");
-        navMenu.classList.remove("active");
+        navMenu.classList.add("hidden");
+        navMenu.classList.remove("flex", "flex-col", "absolute", "top-16", "left-0", "w-full", "bg-white", "shadow-md", "py-4");
     }
 
     // Top Banner Swiper
@@ -65,87 +75,104 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Load rentals dynamically
-    function cargarAlquileres() {
-        // This would typically be an API call. For this example, we'll use a static array.
-        const alquileres = [
-            { id: 1, nombre: "Casa en Villa del Dique", imagen: "https://via.placeholder.com/300x200", descripcion: "Hermosa casa con vista al lago", capacidad: 6, precio: 5000 },
-            { id: 2, nombre: "Cabaña en Villa Rumipal", imagen: "https://via.placeholder.com/300x200", descripcion: "Acogedora cabaña en el bosque", capacidad: 4, precio: 4000 },
-            { id: 3, nombre: "Departamento en El Torreón", imagen: "https://via.placeholder.com/300x200", descripcion: "Moderno departamento con todas las comodidades", capacidad: 3, precio: 3500 },
-        ];
+    // Load cabins dynamically
+    function cargarCabanas() {
+        fetch('cabanas.json')
+            .then(response => response.json())
+            .then(data => {
+                const cabanasContainer = document.querySelector('#cabanas .grid');
+                cabanasContainer.innerHTML = '';
 
-        const alquileresContainer = document.querySelector('#alquileres .grid');
-        alquileresContainer.innerHTML = '';
-
-        alquileres.forEach(alquiler => {
-            const alquilerHTML = `
-                <div class="alquiler-card bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:scale-105" data-aos="fade-up">
-                    <img src="${alquiler.imagen}" alt="${alquiler.nombre}" class="w-full h-48 object-cover">
-                    <div class="p-4">
-                        <h3 class="text-xl font-bold mb-2">${alquiler.nombre}</h3>
-                        <p class="mb-4">${alquiler.descripcion}</p>
-                        <ul class="mb-4">
-                            <li><i class="fas fa-user mr-2"></i> ${alquiler.capacidad} personas</li>
-                            <li><i class="fas fa-dollar-sign mr-2"></i> $${alquiler.precio} por noche</li>
-                        </ul>
-                        <button class="btn btn-secondary block w-full text-center" onclick="mostrarDetalles(${alquiler.id})">Ver más</button>
-                    </div>
-                </div>
-            `;
-            alquileresContainer.innerHTML += alquilerHTML;
-        });
+                data.cabanas.forEach(cabana => {
+                    const cabanaHTML = `
+                        <div class="cabana-card bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:scale-105" data-aos="fade-up">
+                            <img src="${cabana.imagen}" alt="${cabana.nombre}" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <h3 class="text-xl font-bold mb-2">${cabana.nombre}</h3>
+                                <p class="mb-4">${cabana.descripcion}</p>
+                                <ul class="mb-4">
+                                    <li><i class="fas fa-user mr-2"></i> ${cabana.capacidad} personas</li>
+                                    <li><i class="fas fa-dollar-sign mr-2"></i> $${cabana.precio} por noche</li>
+                                </ul>
+                                <button class="btn btn-secondary block w-full text-white bg-secondary hover:bg-primary transition-colors">Reservar</button>
+                            </div>
+                        </div>
+                    `;
+                    cabanasContainer.innerHTML += cabanaHTML;
+                });
+            })
+            .catch(error => console.error('Error:', error));
     }
+
+    cargarCabanas();
 
     // Gallery filter functionality
-    const galleryFilter = document.getElementById('gallery-filter');
-    const galleryContainer = document.getElementById('gallery-container');
+    const galleryFilters = document.querySelectorAll('.gallery-filter');
+    const galleryItems = document.querySelectorAll('.gallery-item');
 
-    // This would typically be loaded from a database or API
-    const galleryItems = [
-        { src: 'https://via.placeholder.com/300x200', alt: 'Villa del Dique', zone: 'villa-del-dique' },
-        { src: 'https://via.placeholder.com/300x200', alt: 'Villa Rumipal', zone: 'villa-rumipal' },
-        { src: 'https://via.placeholder.com/300x200', alt: 'El Torreón', zone: 'el-torreon' },
-        // Add more items as needed
-    ];
-
-    function loadGallery(filter = 'all') {
-        galleryContainer.innerHTML = '';
-        galleryItems.forEach(item => {
-            if (filter === 'all' || item.zone === filter) {
-                const img = document.createElement('img');
-                img.src = item.src;
-                img.alt = item.alt;
-                img.className = 'w-full h-40 object-cover rounded-lg shadow-md gallery-item';
-                img.dataset.aos = 'fade-up';
-                galleryContainer.appendChild(img);
-            }
+    galleryFilters.forEach(filter => {
+        filter.addEventListener('click', function() {
+            const category = this.getAttribute('data-filter');
+            
+            galleryFilters.forEach(f => f.classList.remove('active', 'bg-primary', 'text-white'));
+            this.classList.add('active', 'bg-primary', 'text-white');
+            
+            galleryItems.forEach(item => {
+                if (category === 'all' || item.getAttribute('data-category') === category) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
         });
-    }
-
-    galleryFilter.addEventListener('change', (e) => {
-        loadGallery(e.target.value);
     });
 
-    // Load rentals and gallery when the DOM is ready
-    cargarAlquileres();
-    loadGallery();
+    // Image viewer functionality
+    const galleryImages = document.querySelectorAll('.gallery-item img');
+    let currentImageIndex = 0;
 
-    // Function to handle resizing
-    function handleResize() {
-        // Add any necessary logic for responsive design
-        console.log('Window resized');
+    function createImageViewer() {
+        const viewer = document.createElement('div');
+        viewer.className = 'fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50';
+        viewer.innerHTML = `
+            <button class="absolute top-4 right-4 text-white text-4xl" id="close-viewer">&times;</button>
+            <button class="absolute left-4 top-1/2 transform -translate-y-1/2 text-white text-4xl" id="prev-image">&lt;</button>
+            <img src="" alt="Imagen ampliada" class="max-h-90vh max-w-90vw object-contain">
+            <button class="absolute right-4 top-1/2 transform -translate-y-1/2 text-white text-4xl" id="next-image">&gt;</button>
+        `;
+        document.body.appendChild(viewer);
+
+        const closeBtn = viewer.querySelector('#close-viewer');
+        const prevBtn = viewer.querySelector('#prev-image');
+        const nextBtn = viewer.querySelector('#next-image');
+        const viewerImage = viewer.querySelector('img');
+
+        closeBtn.addEventListener('click', () => viewer.remove());
+        prevBtn.addEventListener('click', showPreviousImage);
+        nextBtn.addEventListener('click', showNextImage);
+
+        function showImage(index) {
+            viewerImage.src = galleryImages[index].src;
+            currentImageIndex = index;
+        }
+
+        function showPreviousImage() {
+            currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
+            showImage(currentImageIndex);
+        }
+
+        function showNextImage() {
+            currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
+            showImage(currentImageIndex);
+        }
+
+        return showImage;
     }
 
-    // Add resize event listener
-    window.addEventListener('resize', handleResize);
+    const showImageInViewer = createImageViewer();
 
-    // Call the function once on page load
-    handleResize();
+    galleryImages.forEach((img, index) => {
+        img.addEventListener('click', () => showImageInViewer(index));
+    });
 });
-
-function mostrarDetalles(id) {
-    // This function would typically fetch more details about the rental and display them
-    // For this example, we'll just show an alert
-    alert(`Mostrando detalles del alquiler ${id}`);
-}
 
