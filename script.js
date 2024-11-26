@@ -6,22 +6,21 @@ document.addEventListener('DOMContentLoaded', function() {
     const hamburger = document.querySelector(".hamburger");
     const navMenu = document.querySelector(".nav-menu");
 
-    if (hamburger && navMenu) {
-        hamburger.addEventListener("click", function() {
-            hamburger.classList.toggle("active");
-            navMenu.classList.toggle("active");
-            navMenu.classList.toggle("hidden");
-            navMenu.classList.toggle("flex");
-        });
+    hamburger.addEventListener("click", mobileMenu);
 
-        // Close mobile menu when clicking on a nav link
-        const navLinks = document.querySelectorAll(".nav-link");
-        navLinks.forEach(n => n.addEventListener("click", function() {
-            hamburger.classList.remove("active");
-            navMenu.classList.remove("active");
-            navMenu.classList.add("hidden");
-            navMenu.classList.remove("flex");
-        }));
+    function mobileMenu() {
+        hamburger.classList.toggle("active");
+        navMenu.classList.toggle("active");
+    }
+
+    // Close mobile menu when clicking on a nav link
+    const navLinks = document.querySelectorAll(".nav-link");
+
+    navLinks.forEach(n => n.addEventListener("click", closeMenu));
+
+    function closeMenu() {
+        hamburger.classList.remove("active");
+        navMenu.classList.remove("active");
     }
 
     // Hero Swiper
@@ -235,40 +234,18 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // Load cabins when the DOM is ready
     cargarCabanas();
 
-    // Gallery filter functionality
-    const galleryFilter = document.getElementById('gallery-filter');
-    const galleryContainer = document.getElementById('gallery-container');
-
-    if (galleryFilter && galleryContainer) {
-        galleryFilter.addEventListener('change', function() {
-            const selectedZone = this.value;
-            const galleryItems = galleryContainer.querySelectorAll('.gallery-item');
-
-            galleryItems.forEach(item => {
-                if (selectedZone === 'all' || item.dataset.zone === selectedZone) {
-                    item.style.display = 'block';
-                } else {
-                    item.style.display = 'none';
-                }
-            });
-        });
+    // Función para manejar el redimensionamiento
+    function handleResize() {
+        // Aquí puedes agregar lógica adicional si es necesario
+        console.log('Ventana redimensionada');
     }
 
-    // Dynamically add filter options
-    const zones = ['villa-del-dique', 'villa-rumipal', 'el-torreon'];
-    zones.forEach(zone => {
-        const option = document.createElement('option');
-        option.value = zone;
-        option.textContent = zone.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
-        galleryFilter.appendChild(option);
-    });
+    // Agregar evento de redimensionamiento
+    window.addEventListener('resize', handleResize);
 
-    // Add data-zone attribute to gallery items
-    const galleryItems = galleryContainer.querySelectorAll('.gallery-item');
-    galleryItems.forEach(item => {
-        const randomZone = zones[Math.floor(Math.random() * zones.length)];
-        item.dataset.zone = randomZone;
-    });
+    // Llamar a la función una vez al cargar la página
+    handleResize();
 });
