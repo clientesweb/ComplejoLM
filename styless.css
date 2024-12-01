@@ -1,3 +1,11 @@
+:root {
+    --primary: #000000;
+    --secondary: #FF7F7F;
+    --accent: #FF7F7F;
+    --text-color: #333333;
+    --bg-color: #FFFFFF;
+}
+
 html, body {
     overflow-x: hidden;
 }
@@ -32,7 +40,55 @@ img {
 }
 
 .whatsapp-float:hover {
-    background-color: #128C7E;
+    background-color: var(--primary);
+}
+
+.btn-primary {
+    background-color: var(--primary);
+    color: var(--bg-color);
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: var(--secondary);
+}
+
+.nav-link {
+    color: var(--primary);
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--secondary);
+}
+
+.service-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.service-card i {
+    color: var(--secondary);
+}
+
+.gallery-item img {
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+.social-icon {
+    transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+    color: var(--secondary);
 }
 
 @media (max-width: 768px) {
@@ -41,7 +97,7 @@ img {
         left: -100%;
         top: 5rem;
         flex-direction: column;
-        background-color: #fff;
+        background-color: var(--bg-color);
         width: 100%;
         text-align: center;
         transition: 0.3s;
@@ -69,3 +125,109 @@ img {
         left: 0;
     }
 }
+
+/* Estilos adicionales para mejorar la apariencia general */
+.text-primary {
+    color: var(--primary);
+}
+
+.text-secondary {
+    color: var(--secondary);
+}
+
+.bg-primary {
+    background-color: var(--primary);
+}
+
+.bg-secondary {
+    background-color: var(--secondary);
+}
+
+.border-primary {
+    border-color: var(--primary);
+}
+
+.border-secondary {
+    border-color: var(--secondary);
+}
+
+/* Estilos para el formulario de contacto */
+.form-input {
+    border: 1px solid var(--primary);
+    transition: border-color 0.3s ease;
+}
+
+.form-input:focus {
+    border-color: var(--secondary);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(255,127,127,0.2);
+}
+
+/* Estilos para las reseñas */
+.review-card {
+    border: 1px solid var(--primary);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.review-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Estilos para el footer */
+.footer-link {
+    color: var(--bg-color);
+    transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+    color: var(--secondary);
+}
+
+/* Estilos para el botón de hamburguesa en móviles */
+.hamburger span {
+    background-color: var(--primary);
+    transition: background-color 0.3s ease;
+}
+
+.hamburger:hover span {
+    background-color: var(--secondary);
+}
+
+/* Estilos para las secciones */
+.section-title {
+    color: var(--primary);
+    position: relative;
+    display: inline-block;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background-color: var(--secondary);
+}
+
+/* Animaciones AOS personalizadas */
+[data-aos] {
+    transition-duration: 800ms;
+}
+
+/* Estilos para el Swiper */
+.swiper-pagination-bullet-active {
+    background-color: var(--secondary) !important;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    color: var(--primary) !important;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+    color: var(--secondary) !important;
+}
+
